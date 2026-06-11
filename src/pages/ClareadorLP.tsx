@@ -39,28 +39,28 @@ export default function ClareadorLP() {
               <Sparkles className="w-3.5 h-3.5" /> Fórmula 100% Natural
             </div>
             
-            <h1 className="text-4xl md:text-[3.5rem] font-serif font-medium leading-[1.15] mb-6 text-[#2C362B] tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-serif font-medium leading-[1.15] mb-6 text-[#2C362B] tracking-tight">
               Você vai continuar sentindo <br className="hidden md:block" />
               <span className="italic font-light text-[#D4A373]">vergonha do seu corpo</span> até quando?
             </h1>
             
-            <p className="text-lg md:text-xl text-[#6B7068] font-light mb-8 leading-relaxed max-w-xl">
-              Chega de ter vergonha do seu próprio corpo! O tratamento número 1 para clareamento intensivo de <strong>Rosto (Melasma), Axilas, Virilhas, Foliculite e Bumbum.</strong> Aprovado por mais de 12.450 mulheres.
+            <p className="text-xl md:text-2xl text-[#6B7068] font-light mb-8 leading-relaxed max-w-xl">
+              O tratamento número 1 para clareamento intensivo de <strong>Rosto (Melasma), Axilas, Virilhas e Foliculite.</strong> Aprovado por mais de 12.000 mulheres.
             </p>
             
             <div className="flex flex-col items-center md:items-start gap-1 mb-4 w-full">
               <a href="#oferta" className="w-full md:w-auto group relative inline-flex items-center justify-center gap-2 bg-[#2C362B] text-white px-8 md:px-12 py-5 rounded-full font-medium overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_15px_40px_-10px_rgba(44,54,43,0.5)] shadow-lg">
-                <span className="relative z-10 flex items-center gap-2 tracking-widest uppercase text-[13px] md:text-[15px] font-black text-center">
+                <span className="relative z-10 flex items-center gap-2 tracking-widest uppercase text-[15px] md:text-[17px] font-black text-center">
                   QUERO CLAREAR MINHAS MANCHAS <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2C362B] to-[#3f4d3e] opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </a>
-              <div className="flex items-center justify-center gap-1.5 text-[11px] md:text-xs text-[#6B7068] font-semibold mt-2 mx-auto md:mx-0 text-center w-full md:w-auto">
+              <div className="flex items-center justify-center gap-1.5 text-xs md:text-sm text-[#6B7068] font-semibold mt-2 mx-auto md:mx-0 text-center w-full md:w-auto">
                 <ShieldCheck className="w-4 h-4 text-green-600" /> Risco Zero: Pague apenas quando o entregador chegar na sua casa.
               </div>
             </div>
             
-            <div className="inline-flex items-center gap-3 bg-[#D4A373]/10 border border-[#D4A373]/30 px-5 py-3 rounded-2xl text-[#2C362B] text-xs font-bold uppercase tracking-wider mx-auto md:mx-0">
+            <div className="inline-flex items-center gap-3 bg-[#D4A373]/10 border border-[#D4A373]/30 px-5 py-3 rounded-2xl text-[#2C362B] text-sm md:text-base font-bold uppercase tracking-wider mx-auto md:mx-0">
               <Truck className="w-5 h-5 text-[#D4A373]" /> 
               <span>ZERO RISCO: <strong className="text-[#D4A373]">PAGUE APENAS NA ENTREGA!</strong></span>
             </div>
@@ -87,32 +87,32 @@ export default function ClareadorLP() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Texto Emocional e Ingredientes */}
             <div className="space-y-8">
-              <div className="prose md:prose-lg text-[#6B7068] font-light leading-relaxed">
+              <div className="prose md:prose-lg text-[#6B7068] text-lg md:text-xl font-light leading-relaxed">
                 <p className="mb-4">
-                  Nós sabemos o quão frustrante é gastar dinheiro com ácidos químicos agressivos de farmácia. Eles deixam a pele vermelha, descamam, ardem absurdamente e, no primeiro contato com o sol... <strong>a mancha volta ainda maior (O temido Efeito Rebote).</strong>
+                  Ácidos químicos de farmácia descamam, ardem e causam o <strong>Efeito Rebote</strong>: no primeiro contato com o sol a mancha volta ainda maior.
                 </p>
-                <p className="text-[#2C362B] font-medium text-[19px] border-l-4 border-[#D4A373] pl-5 italic">
-                  Descobrimos que a pele só se cura de verdade quando não é agredida.
+                <p className="text-[#2C362B] font-medium text-[22px] border-l-4 border-[#D4A373] pl-5 italic">
+                  A pele só clareia de verdade quando não é agredida.
                 </p>
               </div>
               
               <div className="hidden md:block bg-white p-8 rounded-3xl shadow-sm border border-[#EAE6DF]">
                 <h4 className="font-serif text-2xl text-[#2C362B] mb-6">Ação Clareadora em Todas as Áreas 🌿</h4>
-                <p className="text-[#6B7068] text-sm font-light leading-relaxed mb-6">
-                  Nossa fórmula inteligente age diretamente na raiz da hiperpigmentação de forma 100% natural, sem descamar e sem dor. Perfeito para:
+                <p className="text-[#6B7068] text-base font-light leading-relaxed mb-6">
+                  Age na raiz da hiperpigmentação de forma 100% natural, sem descamar e sem dor:
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" />
-                    <span className="text-[#4A4C48] text-[15px]"><strong className="text-[#2C362B]">Axilas e Virilhas:</strong> Apaga o escurecimento severo causado por gilete, depilação e atrito de roupas.</span>
+                    <span className="text-[#4A4C48] text-[17px]"><strong className="text-[#2C362B]">Axilas e Virilhas:</strong> Apaga o escurecimento severo causado por gilete e atrito.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" />
-                    <span className="text-[#4A4C48] text-[15px]"><strong className="text-[#2C362B]">Rosto (Melasma):</strong> O Extrato de Mulateiro desliga a produção descontrolada de melanina, suavizando as manchas do sol e da gravidez.</span>
+                    <span className="text-[#4A4C48] text-[17px]"><strong className="text-[#2C362B]">Rosto (Melasma):</strong> Desliga a produção de melanina, suavizando manchas do sol e gravidez.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" />
-                    <span className="text-[#4A4C48] text-[15px]"><strong className="text-[#2C362B]">Bumbum e Coxas:</strong> A Argila Branca + Melaleuca secam as bolinhas da foliculite e clareiam as temidas marcas de espinhas nos glúteos e costas.</span>
+                    <span className="text-[#4A4C48] text-[17px]"><strong className="text-[#2C362B]">Bumbum e Coxas:</strong> Seca a foliculite e clareia marcas de espinhas nos glúteos e costas.</span>
                   </li>
                 </ul>
               </div>
@@ -165,21 +165,21 @@ export default function ClareadorLP() {
           {/* Mobile: Ação Clareadora em Todas as Áreas */}
           <div className="block md:hidden bg-[#FDFBF7] p-8 rounded-3xl shadow-sm border border-[#EAE6DF]">
             <h4 className="font-serif text-2xl text-[#2C362B] mb-6">Ação Clareadora em Todas as Áreas 🌿</h4>
-            <p className="text-[#6B7068] text-sm font-light leading-relaxed mb-6">
-              Nossa fórmula inteligente age diretamente na raiz da hiperpigmentação de forma 100% natural, sem descamar e sem dor. Perfeito para:
+            <p className="text-[#6B7068] text-base font-light leading-relaxed mb-6">
+              Age na raiz da hiperpigmentação de forma 100% natural, sem descamar e sem dor:
             </p>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" />
-                <span className="text-[#4A4C48] text-[15px]"><strong className="text-[#2C362B]">Axilas e Virilhas:</strong> Apaga o escurecimento severo causado por gilete, depilação e atrito de roupas.</span>
+                <span className="text-[#4A4C48] text-[17px]"><strong className="text-[#2C362B]">Axilas e Virilhas:</strong> Apaga o escurecimento severo causado por gilete e atrito.</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" />
-                <span className="text-[#4A4C48] text-[15px]"><strong className="text-[#2C362B]">Rosto (Melasma):</strong> O Extrato de Mulateiro desliga a produção descontrolada de melanina, suavizando as manchas do sol e da gravidez.</span>
+                <span className="text-[#4A4C48] text-[17px]"><strong className="text-[#2C362B]">Rosto (Melasma):</strong> Desliga a produção de melanina, suavizando manchas do sol e gravidez.</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" />
-                <span className="text-[#4A4C48] text-[15px]"><strong className="text-[#2C362B]">Bumbum e Coxas:</strong> A Argila Branca + Melaleuca secam as bolinhas da foliculite e clareiam as temidas marcas de espinhas nos glúteos e costas.</span>
+                <span className="text-[#4A4C48] text-[17px]"><strong className="text-[#2C362B]">Bumbum e Coxas:</strong> Seca a foliculite e clareia marcas de espinhas nos glúteos e costas.</span>
               </li>
             </ul>
           </div>
@@ -211,11 +211,8 @@ export default function ClareadorLP() {
             <h3 className="font-serif text-3xl md:text-4xl text-[#2C362B] mb-6 leading-tight">
               Até quando você vai <span className="text-red-600 italic">esconder o seu corpo</span> por vergonha?
             </h3>
-            <p className="text-[#6B7068] text-lg font-light leading-relaxed mb-6">
-              Responda com sinceridade: <strong>Há quanto tempo você prefere apagar a luz na hora da intimidade porque a sua pele está manchada?</strong>
-            </p>
-            <p className="text-[#6B7068] text-lg font-light leading-relaxed">
-              Nós sabemos a dor que é abrir mão de usar aquele biquíni lindo na praia ou derreter de calor no verão escondendo os braços para ninguém ver a axila escurecida. Você não precisa mais passar por essa humilhação calada. Milhares de mulheres já se libertaram e recuperaram a feminilidade. Você será a próxima?
+            <p className="text-[#6B7068] text-xl font-light leading-relaxed">
+              Você não precisa mais passar calor escondendo os braços ou sentir vergonha na hora da intimidade. Milhares de mulheres já se libertaram e recuperaram a autoestima. Você será a próxima?
             </p>
           </div>
           
@@ -253,10 +250,10 @@ export default function ClareadorLP() {
             
             <div className="max-w-2xl mx-auto mt-6 mb-2 p-5 bg-[#D4A373]/10 border border-[#D4A373]/20 rounded-2xl">
               <p className="text-[#2C362B] font-medium text-lg italic mb-2">
-                Qual é o valor de nunca mais ter vergonha de colocar um biquíni ou de acender a luz na intimidade?
+                Qual o valor da sua autoestima de volta?
               </p>
-              <p className="text-[#6B7068] font-light text-sm leading-relaxed">
-                O valor que você vai investir hoje para ter a sua liberdade e autoestima de volta não paga nem uma única sessão de laser ou peeling na dermatologista (que só faria a mancha voltar pior). É um investimento insignificante comparado à paz de olhar no espelho e se amar de novo. E o melhor: <strong>Você só paga quando o entregador deixar o produto nas suas mãos.</strong>
+              <p className="text-[#6B7068] font-light text-base leading-relaxed">
+                Este investimento supera qualquer procedimento caro que só traz rebote. É a paz de se amar novamente. <strong>Pague apenas quando o entregador deixar o produto em suas mãos.</strong>
               </p>
             </div>
           </div>
@@ -280,15 +277,15 @@ export default function ClareadorLP() {
                   <div className="font-serif text-5xl text-[#2C362B] tracking-tight">R$ 97<span className="text-2xl">,90</span></div>
                 </div>
                 <ul className="space-y-4 mb-8 pt-4 flex-1">
-                  <li className="flex items-start gap-3 text-sm text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Clareamento visível nos <strong>primeiros dias</strong></span></li>
-                  <li className="flex items-start gap-3 text-sm text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Nutrição profunda (Rende 1 Mês)</span></li>
-                  <li className="flex items-start gap-3 text-sm text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span><strong>Pague apenas ao entregador</strong></span></li>
+                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Clareamento visível nos <strong>primeiros dias</strong></span></li>
+                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Nutrição profunda (Rende 1 Mês)</span></li>
+                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span><strong>Pague apenas ao entregador</strong></span></li>
                 </ul>
                 <div className="w-full flex flex-col items-center">
-                  <a href={link1Unidade} onClick={() => handleInitiateCheckout('1 Unidade Amazolé', 97.90)} className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[13px] transition-all shadow-[0_10px_20px_rgba(34,197,94,0.3)] group">
+                  <a href={link1Unidade} onClick={() => handleInitiateCheckout('1 Unidade Amazolé', 97.90)} className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[15px] transition-all shadow-[0_10px_20px_rgba(34,197,94,0.3)] group">
                     Pedir 1 Unidade <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </a>
-                  <div className="flex items-center justify-center gap-1.5 text-[10px] text-[#6B7068] font-bold mt-3 text-center">
+                  <div className="flex items-center justify-center gap-1.5 text-xs text-[#6B7068] font-bold mt-3 text-center">
                     <ShieldCheck className="w-3.5 h-3.5 text-green-600" /> Pague apenas quando receber o produto em mãos
                   </div>
                 </div>
@@ -322,21 +319,21 @@ export default function ClareadorLP() {
                 
                 <div className="bg-[#D4A373]/10 border border-[#D4A373]/30 rounded-xl p-3.5 mb-6 text-center shadow-[inset_0_2px_10px_rgba(0,0,0,0.2)]">
                   <p className="text-[#D4A373] text-[11px] font-bold uppercase tracking-widest mb-1">Recomendação dos Especialistas</p>
-                  <p className="text-[#EAE6DF] text-[11px] font-light leading-relaxed">O tratamento de 3 meses garante que a mancha seja apagada desde a raiz, bloqueando a melanina para que ela <strong>nunca mais volte</strong>. É por isso que 9 a cada 10 clientes compram este kit para resolver o problema de uma vez por todas.</p>
+                  <p className="text-[#EAE6DF] text-[11px] font-light leading-relaxed">O tratamento de 3 meses bloqueia a melanina para que a mancha <strong>nunca mais volte</strong>. Por isso 9 a cada 10 clientes escolhem este kit.</p>
                 </div>
 
                 <ul className="space-y-4 mb-8 pt-2 flex-1 border-t border-white/10">
-                  <li className="flex items-start gap-3 text-sm text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span><strong>Remoção definitiva até das manchas mais crônicas</strong></span></li>
-                  <li className="flex items-start gap-3 text-sm text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Apaga o escurecimento severo (Axila e Virilha)</span></li>
-                  <li className="flex items-start gap-3 text-sm text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Bloqueia o Efeito Rebote (Rende 3 Meses)</span></li>
-                  <li className="flex items-start gap-3 text-sm text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span><strong>Pague apenas ao entregador na sua porta</strong></span></li>
+                  <li className="flex items-start gap-3 text-base text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span><strong>Remoção definitiva até das manchas mais crônicas</strong></span></li>
+                  <li className="flex items-start gap-3 text-base text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Apaga o escurecimento severo (Axila e Virilha)</span></li>
+                  <li className="flex items-start gap-3 text-base text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span>Bloqueia o Efeito Rebote (Rende 3 Meses)</span></li>
+                  <li className="flex items-start gap-3 text-base text-[#EAE6DF] font-light"><CheckCircle2 className="w-5 h-5 text-[#D4A373] shrink-0 mt-0.5" /> <span><strong>Pague apenas ao entregador na sua porta</strong></span></li>
                 </ul>
                 <div className="w-full flex flex-col items-center">
-                  <a href={link3Unidades} onClick={() => handleInitiateCheckout('Kit 3 Unidades Amazolé', 247.00)} className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[14px] transition-all hover:scale-[1.02] shadow-[0_15px_30px_rgba(34,197,94,0.5)] relative overflow-hidden group/btn">
+                  <a href={link3Unidades} onClick={() => handleInitiateCheckout('Kit 3 Unidades Amazolé', 247.00)} className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[16px] transition-all hover:scale-[1.02] shadow-[0_15px_30px_rgba(34,197,94,0.5)] relative overflow-hidden group/btn">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite]"></div>
                     <span className="flex items-center gap-2 relative z-10">Garantir a Promoção <ChevronRight className="w-6 h-6 transition-transform group-hover/btn:translate-x-1" /></span>
                   </a>
-                  <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#EAE6DF] font-bold mt-3 text-center">
+                  <div className="flex items-center justify-center gap-1.5 text-xs text-[#EAE6DF] font-bold mt-3 text-center">
                     <ShieldCheck className="w-4 h-4 text-green-400" /> Pague apenas quando o entregador chegar na sua casa
                   </div>
                 </div>
@@ -383,8 +380,8 @@ export default function ClareadorLP() {
         <div className="max-w-3xl mx-auto">
           <Lock className="w-8 h-8 text-[#D4A373] mx-auto mb-5 opacity-80" />
           <h3 className="text-lg font-serif text-[#2C362B] mb-3">Compra 100% Segura</h3>
-          <p className="text-sm text-[#A9ACA6] font-light leading-relaxed mb-10 max-w-xl mx-auto">
-            Nós levamos a sua segurança a sério. Por isso, desenvolvemos o sistema de <strong>Pagamento na Entrega</strong>. Você não precisa expor seus dados bancários ou números de cartão de crédito na internet. Faça seu pedido em menos de 1 minuto, receba no conforto do seu lar e pague diretamente ao entregador. Risco zero para você.
+          <p className="text-base text-[#A9ACA6] font-light leading-relaxed mb-10 max-w-xl mx-auto">
+            Sua compra é 100% segura com o <strong>Pagamento na Entrega</strong>. Faça o pedido online sem expor dados bancários e pague apenas ao entregador. Risco zero.
           </p>
           <div className="text-[10px] text-[#A9ACA6] uppercase tracking-widest border-t border-[#EAE6DF] pt-8 font-medium">
             © {new Date().getFullYear()} Amazolé Clareador. Todos os direitos reservados.
@@ -395,7 +392,7 @@ export default function ClareadorLP() {
       {/* Botão Flutuante Fixo na Base (Sticky Bottom CTA) */}
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-t border-[#EAE6DF] p-3 md:p-4 shadow-[0_-10px_30px_rgba(0,0,0,0.1)] flex justify-center items-center">
         <a href="#oferta" className="w-full max-w-lg group relative inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3.5 md:py-4 rounded-full font-bold overflow-hidden transition-all hover:scale-[1.02] shadow-[0_10px_20px_rgba(34,197,94,0.3)]">
-          <span className="relative z-10 flex items-center gap-2 tracking-widest uppercase text-[13px] md:text-[15px] font-black text-center">
+          <span className="relative z-10 flex items-center gap-2 tracking-widest uppercase text-[15px] md:text-[17px] font-black text-center">
             ACABAR COM AS MANCHAS AGORA
           </span>
           <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
