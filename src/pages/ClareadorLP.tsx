@@ -84,23 +84,11 @@ export default function ClareadorLP() {
             {/* Texto Emocional e Ingredientes */}
             <div className="space-y-8">
               <div className="prose prose-lg text-[#6B7068] font-light leading-relaxed">
-                <p className="mb-4 text-2xl font-serif text-[#2C362B]">
-                  Eu sei exatamente como você se sente...
-                </p>
                 <p className="mb-4">
-                  Responda com sinceridade: <strong>Há quanto tempo você tem vergonha de olhar no espelho ou prefere apagar a luz na hora da intimidade porque a sua pele está manchada?</strong>
+                  Nós sabemos o quão frustrante é gastar dinheiro com ácidos químicos agressivos de farmácia. Eles deixam a pele vermelha, descamam, ardem absurdamente e, no primeiro contato com o sol... <strong>a mancha volta ainda maior (O temido Efeito Rebote).</strong>
                 </p>
-                <p className="mb-4">
-                  Nós sabemos a dor que é abrir mão de usar aquele biquíni lindo na praia, ou derreter de calor no verão escondendo os braços numa blusa longa só para ninguém ver suas axilas escurecidas. Sabemos o desespero de ter que acordar mais cedo só para passar camadas grossas de corretivo e tentar disfarçar o melasma do rosto antes do marido acordar.
-                </p>
-                <p className="mb-4">
-                  É frustrante ver as outras mulheres com a pele lisinha e uniforme, enquanto você se sente refém do próprio corpo, com a autoestima destruída. Você já tentou receitas caseiras que queimaram a sua pele. Já gastou rios de dinheiro com ácidos de farmácia que ardem, descamam e, no final... <strong>só fazem a mancha voltar o dobro do tamanho (O temido Efeito Rebote).</strong>
-                </p>
-                <p className="mb-6">
-                  Até quando você vai adiar a sua felicidade? Até quando alguém vai te abraçar ou te tocar e você vai se encolher de vergonha das suas manchas na virilha e no bumbum?
-                </p>
-                <p className="text-[#2C362B] font-medium text-[19px] border-l-4 border-[#D4A373] pl-5 italic bg-[#D4A373]/5 p-4 rounded-r-xl">
-                  Você não precisa mais passar por essa humilhação calada. A culpa das manchas não é sua. E agora, você finalmente encontrou a chave para recuperar a sua feminilidade, sua segurança e a liberdade de vestir o que quiser sem medo de ser julgada.
+                <p className="text-[#2C362B] font-medium text-[19px] border-l-4 border-[#D4A373] pl-5 italic">
+                  Descobrimos que a pele só se cura de verdade quando não é agredida.
                 </p>
               </div>
               
@@ -184,6 +172,21 @@ export default function ClareadorLP() {
             <div className="relative rounded-[2rem] overflow-hidden aspect-[9/16] bg-slate-900 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border-8 border-white group">
               <video src="/depoimento-2.mp4" controls className="w-full h-full object-cover"></video>
             </div>
+          </div>
+          {/* Foco na dor e Headline Chamativa entre os depoimentos */}
+          <div className="max-w-3xl mx-auto text-center mb-16 bg-white p-8 md:p-12 rounded-[2rem] border border-red-100 shadow-xl relative mt-4">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black tracking-widest uppercase px-6 py-2 rounded-full shadow-lg">
+              A Escolha é Sua
+            </div>
+            <h3 className="font-serif text-3xl md:text-4xl text-[#2C362B] mb-6 leading-tight">
+              Até quando você vai <span className="text-red-600 italic">esconder o seu corpo</span> por vergonha?
+            </h3>
+            <p className="text-[#6B7068] text-lg font-light leading-relaxed mb-6">
+              Responda com sinceridade: <strong>Há quanto tempo você prefere apagar a luz na hora da intimidade porque a sua pele está manchada?</strong>
+            </p>
+            <p className="text-[#6B7068] text-lg font-light leading-relaxed">
+              Nós sabemos a dor que é abrir mão de usar aquele biquíni lindo na praia ou derreter de calor no verão escondendo os braços para ninguém ver a axila escurecida. Você não precisa mais passar por essa humilhação calada. Milhares de mulheres já se libertaram e recuperaram a feminilidade. Você será a próxima?
+            </p>
           </div>
           
           {/* Fotos Clean - Sem textos e sem fundos escuros */}
