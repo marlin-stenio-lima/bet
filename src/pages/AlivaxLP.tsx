@@ -120,15 +120,15 @@ export default function AlivaxLP() {
               </div>
             </div>
 
-            {/* Imagem Depoimento ZAP */}
-            <div className="relative transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            {/* Imagem Joelho (Mecanismo de Ação) */}
+            <div className="relative transform hover:-translate-y-2 transition-transform duration-500">
               <div className="absolute inset-0 bg-[#EA580C] translate-x-3 translate-y-3 rounded-3xl opacity-20"></div>
-              <img src="/depoimento-zap.png" alt="Cliente elogiando no WhatsApp" className="w-full max-w-sm mx-auto relative z-10 rounded-3xl shadow-2xl border-4 border-white" />
+              <img src="/alivax-joelho.png" alt="Reconstrução Articular" className="w-full max-w-sm mx-auto relative z-10 rounded-3xl shadow-2xl border-4 border-[#0F172A]" />
               <div className="absolute -bottom-6 -left-6 bg-white px-6 py-4 rounded-2xl shadow-xl z-20 flex items-center gap-3 border border-[#EAE6DF]">
-                <Heart className="w-6 h-6 fill-red-500 text-red-500" />
+                <ShieldCheck className="w-6 h-6 text-[#EA580C]" />
                 <div>
-                  <p className="text-[#0F172A] font-bold text-sm">Alívio Rápido</p>
-                  <p className="text-[#8B8D88] text-xs">Milhares de clientes recuperaram a mobilidade.</p>
+                  <p className="text-[#0F172A] font-bold text-sm">Ação Direta na Raiz</p>
+                  <p className="text-[#8B8D88] text-xs">Desinflama e restaura a cartilagem</p>
                 </div>
               </div>
             </div>
