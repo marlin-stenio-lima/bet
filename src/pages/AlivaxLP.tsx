@@ -229,9 +229,9 @@ export default function AlivaxLP() {
                   <span className="block text-[#A9ACA6] text-xs line-through mb-1 font-light">De R$ 197,00</span>
                   <div className="font-serif text-5xl text-[#064E3B] tracking-tight">R$ 129<span className="text-2xl">,90</span></div>
                 </div>
-                <ul className="space-y-4 mb-8 pt-4 flex-1">
-                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" /> <span>Alívio nas primeiras semanas</span></li>
-                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" /> <span>Rende 1 Mês de uso</span></li>
+                <ul className="space-y-3 mb-8 pt-4 flex-1">
+                  <li className="flex items-center gap-3 text-[15px] text-[#4A4C48] bg-[#FDFBF7] p-3 rounded-xl border border-[#EAE6DF]/80"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0" /> <span><strong className="text-[#064E3B]">Alívio</strong> nas primeiras semanas</span></li>
+                  <li className="flex items-center gap-3 text-[15px] text-[#4A4C48] bg-[#FDFBF7] p-3 rounded-xl border border-[#EAE6DF]/80"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0" /> <span>Rende <strong className="text-[#064E3B]">1 Mês</strong> de uso</span></li>
                 </ul>
                 <div className="w-full flex flex-col items-center">
                   <a href={link1Unidade} onClick={() => handleInitiateCheckout('1 Unidade Alivax', 129.90)} className="w-full flex items-center justify-center gap-2 bg-[#15803D] hover:bg-[#c24102] text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[15px] transition-all shadow-md group">
@@ -245,7 +245,7 @@ export default function AlivaxLP() {
             </div>
 
             {/* Kit 2 Unidades */}
-            <div className="w-full lg:w-[380px] bg-white rounded-[2rem] border-2 border-[#15803D] shadow-[0_15px_40px_rgb(234,88,12,0.15)] transform lg:-translate-y-4 transition-all duration-500 overflow-hidden flex flex-col group relative z-10">
+            <div className="w-full lg:w-[380px] bg-white rounded-[2rem] border-2 border-[#15803D] shadow-[0_15px_40px_rgb(21,128,61,0.2)] transform lg:-translate-y-4 transition-all duration-500 overflow-hidden flex flex-col group relative z-10">
               <div className="absolute top-0 left-0 right-0 bg-[#15803D] text-white text-center py-2.5 font-black text-[10px] uppercase tracking-[0.2em] z-30">
                 ⭐ Oferta Especial: Compre 1, Leve 2
               </div>
@@ -258,13 +258,14 @@ export default function AlivaxLP() {
                   <span className="block text-[#A9ACA6] text-sm line-through mb-1 font-light">De R$ 259,80</span>
                   <div className="font-serif text-6xl text-[#064E3B] tracking-tight">R$ 189<span className="text-2xl">,90</span></div>
                 </div>
-                <ul className="space-y-4 mb-8 pt-2 flex-1">
-                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" /> <span><strong>Tratamento recomendado</strong></span></li>
-                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" /> <span>Desinflamação profunda</span></li>
-                  <li className="flex items-start gap-3 text-base text-[#4A4C48] font-light"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" /> <span>Devolve a flexibilidade</span></li>
+                <ul className="space-y-3 mb-8 pt-2 flex-1">
+                  <li className="flex items-center gap-3 text-[15px] text-[#4A4C48] bg-[#15803D]/5 p-3 rounded-xl border border-[#15803D]/20"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0" /> <span className="font-bold text-[#064E3B]">Tratamento recomendado</span></li>
+                  <li className="flex items-center gap-3 text-[15px] text-[#4A4C48] bg-[#15803D]/5 p-3 rounded-xl border border-[#15803D]/20"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0" /> <span><strong className="text-[#064E3B]">Desinflamação</strong> profunda</span></li>
+                  <li className="flex items-center gap-3 text-[15px] text-[#4A4C48] bg-[#15803D]/5 p-3 rounded-xl border border-[#15803D]/20"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0" /> <span>Devolve a <strong className="text-[#064E3B]">flexibilidade</strong></span></li>
+                  <li className="flex items-center gap-3 text-[15px] bg-amber-50 p-3 rounded-xl border border-amber-200 text-amber-800"><div className="w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0 text-xs font-bold">!</div> <span className="font-black">Frete Grátis</span> para sua região</li>
                 </ul>
                 <div className="w-full flex flex-col items-center">
-                  <a href={link2Unidades} onClick={() => handleInitiateCheckout('2 Unidades Alivax', 189.90)} className="w-full flex items-center justify-center gap-2 bg-[#15803D] hover:bg-[#c24102] text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[16px] transition-all hover:scale-[1.02] shadow-[0_15px_30px_rgba(234,88,12,0.4)] relative overflow-hidden group/btn">
+                  <a href={link2Unidades} onClick={() => handleInitiateCheckout('2 Unidades Alivax', 189.90)} className="w-full flex items-center justify-center gap-2 bg-[#15803D] hover:bg-[#166534] text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[16px] transition-all hover:scale-[1.02] shadow-[0_15px_30px_rgba(21,128,61,0.3)] relative overflow-hidden group/btn">
                     <span className="flex items-center gap-2 relative z-10">Levar 2 Frascos <ChevronRight className="w-6 h-6 transition-transform group-hover/btn:translate-x-1" /></span>
                   </a>
                   <div className="flex items-center justify-center gap-1.5 text-xs text-[#6B7068] font-bold mt-3 text-center">
@@ -285,12 +286,13 @@ export default function AlivaxLP() {
                   <span className="block text-white/50 text-xs line-through mb-1 font-light">De R$ 389,70</span>
                   <div className="font-serif text-5xl text-white tracking-tight">R$ 289<span className="text-2xl">,90</span></div>
                 </div>
-                <ul className="space-y-4 mb-8 pt-4 flex-1">
-                  <li className="flex items-start gap-3 text-base text-white/90 font-light"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" /> <span><strong>Reconstrução total</strong> da cartilagem</span></li>
-                  <li className="flex items-start gap-3 text-base text-white/90 font-light"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" /> <span>Manutenção a longo prazo</span></li>
+                <ul className="space-y-3 mb-8 pt-4 flex-1">
+                  <li className="flex items-center gap-3 text-[15px] text-white/90 bg-[#065F46]/60 p-3 rounded-xl border border-[#065F46]"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0" /> <span><strong className="text-white">Reconstrução total</strong> da cartilagem</span></li>
+                  <li className="flex items-center gap-3 text-[15px] text-white/90 bg-[#065F46]/60 p-3 rounded-xl border border-[#065F46]"><CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0" /> <span>Manutenção <strong className="text-white">a longo prazo</strong></span></li>
+                  <li className="flex items-center gap-3 text-[15px] bg-amber-900/40 p-3 rounded-xl border border-amber-700/50 text-amber-300"><div className="w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0 text-xs font-bold">!</div> <span className="font-black">Frete Grátis</span> para sua região</li>
                 </ul>
                 <div className="w-full flex flex-col items-center">
-                  <a href={link3Unidades} onClick={() => handleInitiateCheckout('Kit 3 Unidades Alivax', 289.90)} className="w-full flex items-center justify-center gap-2 bg-[#15803D] hover:bg-[#c24102] text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[15px] transition-all shadow-md group">
+                  <a href={link3Unidades} onClick={() => handleInitiateCheckout('Kit 3 Unidades Alivax', 289.90)} className="w-full flex items-center justify-center gap-2 bg-[#15803D] hover:bg-[#166534] text-white py-5 rounded-2xl font-black tracking-widest uppercase text-[15px] transition-all shadow-[0_15px_30px_rgba(21,128,61,0.2)] group">
                     Levar 3 Frascos <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </a>
                   <div className="flex items-center justify-center gap-1.5 text-xs text-white/60 font-bold mt-3 text-center">
