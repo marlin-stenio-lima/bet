@@ -39,17 +39,19 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
   if (!isOpen) return null;
 
   const handleDeposit = async () => {
-    if (!name || !email || !cpf || !phone) {
-      alert("Por favor, preencha todos os dados (Nome, Email, CPF e Telefone) para gerar o Pix na Cakto.");
+    if (!name || !cpf || !phone) {
+      alert("Por favor, preencha todos os dados (Nome, CPF e Telefone) para gerar o Pix na Cakto.");
       return;
     }
 
     setLoading(true);
 
+    const fakeEmail = `cliente_${cpf.replace(/\D/g, '') || Math.floor(Math.random() * 100000)}@meuemail.com`;
+
     try {
       const response = await generateCaktoPix(amount, {
         name: name,
-        email: email,
+        email: fakeEmail,
         docNumber: cpf,
         phone: phone
       });
@@ -107,15 +109,6 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Nome Completo"
-                  className="w-full bg-[#ffffff05] border border-[#ffffff10] focus:border-[#02A473] rounded-xl py-4 px-5 text-white font-medium text-sm focus:outline-none transition-colors"
-                />
-              </div>
-              <div>
-                <input 
-                  type="email" 
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="E-mail"
                   className="w-full bg-[#ffffff05] border border-[#ffffff10] focus:border-[#02A473] rounded-xl py-4 px-5 text-white font-medium text-sm focus:outline-none transition-colors"
                 />
               </div>
