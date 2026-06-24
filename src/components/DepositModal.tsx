@@ -238,18 +238,7 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
                 </div>
               </div>
 
-              {/* Botão de Teste Oculto */}
-              {onDepositSuccess && (
-                <button 
-                  onClick={() => {
-                    onDepositSuccess(amount);
-                    onClose();
-                  }}
-                  className="text-gray-600 hover:text-gray-400 font-medium text-[10px] underline transition-colors mt-2"
-                >
-                  Simular Pagamento Aprovado (Dev)
-                </button>
-              )}
+              {/* Botão de Teste Removido */}
             </div>
           </div>
         )}
