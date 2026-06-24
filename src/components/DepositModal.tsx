@@ -13,7 +13,6 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
   const [amount, setAmount] = useState<number>(50);
   const [cpf, setCpf] = useState('');
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [timeLeft, setTimeLeft] = useState(293); // 4:53
   const [loading, setLoading] = useState(false);
