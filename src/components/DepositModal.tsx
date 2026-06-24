@@ -33,17 +33,6 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
     return () => clearInterval(timer);
   }, [step, timeLeft]);
 
-  // Efeito mágico de simulação de pagamento (15 segundos)
-  useEffect(() => {
-    let magicTimer: any;
-    if (step === 2) {
-      magicTimer = setTimeout(() => {
-        onDepositSuccess(amount);
-      }, 15000); // 15 segundos após gerar o PIX
-    }
-    return () => clearTimeout(magicTimer);
-  }, [step, amount, onDepositSuccess]);
-
   if (!isOpen) return null;
 
   const handleDeposit = async () => {
