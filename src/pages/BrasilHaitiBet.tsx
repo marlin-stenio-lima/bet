@@ -16,10 +16,6 @@ export default function BrasilHaitiBet() {
     return '20.00';
   };
 
-  const handleDepositSuccess = (amount: number) => {
-    setBalance(prev => prev + amount);
-  };
-
   const handleWithdraw = (amount: number) => {
     // Saca o valor e zera o saldo
     setBalance(prev => prev - amount);
