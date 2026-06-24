@@ -9,7 +9,7 @@
   --color-card: #ffffff;
   --color-text-main: #0f172a;
   --color-text-muted: #64748b;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
