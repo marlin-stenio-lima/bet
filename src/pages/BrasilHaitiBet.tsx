@@ -7,13 +7,13 @@ export default function BrasilHaitiBet() {
   const [isDepositModalOpen, setIsDepositModalOpen] = useState(false);
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
   const [balance, setBalance] = useState(0);
-  const [selectedTeam, setSelectedTeam] = useState<'escocia' | 'empate' | 'brasil' | null>('escocia'); // Initialized to escocia to match screenshot, wait, they clicked escocia
+  const [selectedTeam, setSelectedTeam] = useState<'escocia' | 'empate' | 'brasil' | null>('escocia');
 
   const getOddValue = () => {
-    if (selectedTeam === 'escocia') return '2.00';
+    if (selectedTeam === 'escocia') return '5.00';
     if (selectedTeam === 'empate') return '10.00';
-    if (selectedTeam === 'brasil') return '20.00';
-    return '20.00';
+    if (selectedTeam === 'brasil') return '8.00';
+    return '8.00';
   };
 
   const handleWithdraw = (amount: number) => {
@@ -75,17 +75,17 @@ export default function BrasilHaitiBet() {
             <span className="text-white">ESCÓCIA</span> <span className="text-[#FFDF00] text-2xl font-light mx-1">x</span> <span className="text-[#FFDF00]">BRASIL</span>
           </h1>
           
-          <p className="text-gray-100 text-[13px] px-6 leading-relaxed mt-2 font-medium drop-shadow-md">
-            Mercado exclusivo. <strong className="text-[#FFDF00]">Aposte R$1</strong> e leve <strong className="text-[#FFDF00]">R$20 em Free Bet.</strong>
+          <p className="text-[#008c5c] text-[10px] md:text-[11px] font-black uppercase tracking-widest leading-relaxed">
+            Mercado exclusivo. <strong className="text-[#FFDF00]">Aposte R$1</strong> e leve <strong className="text-[#FFDF00]">R$8 em Free Bet.</strong>
           </p>
         </div>
 
         {/* CARD SUPER ODD (GLASSMORPHISM) */}
         <div className="w-full bg-[#0a2012]/60 backdrop-blur-2xl border border-white/10 rounded-[40px] p-6 mb-12 shadow-[0_20px_60px_rgba(0,0,0,0.6)] relative overflow-hidden">
           
-          {/* Fundo do Card (Número 20 gigante) */}
+          {/* Fundo do Card (Número 8 gigante) */}
           <div className="absolute -right-8 top-10 text-white/5 font-black text-[220px] leading-none select-none pointer-events-none z-0 tracking-tighter">
-            20
+            8
           </div>
 
           <div className="relative z-10">
@@ -99,13 +99,12 @@ export default function BrasilHaitiBet() {
               </div>
             </div>
 
-            <h2 className="text-[32px] font-black text-[#FFDF00] leading-[1.1] mb-4 tracking-tight drop-shadow-md">
-              APOSTE R$1<br/>
-              E GANHE R$20
+            <h2 className="text-[32px] md:text-[44px] font-black text-white leading-[1.1] tracking-tight drop-shadow-lg mb-4">
+              E GANHE R$8
             </h2>
             
-            <p className="text-white text-[13px] mb-8 pr-2 leading-relaxed drop-shadow-md">
-              Acerte o vencedor de Escócia x Brasil e receba <strong>R$20 em Free Bet</strong> direto na sua conta.
+            <p className="text-sm md:text-base text-gray-200 mb-8 max-w-sm drop-shadow-md">
+              Acerte o vencedor de Escócia x Brasil e receba <strong>R$8 em Free Bet</strong> direto na sua conta.
             </p>
 
             <div className="bg-black/30 backdrop-blur-md border border-white/10 rounded-[24px] p-5 flex gap-3 mb-8">
@@ -113,7 +112,7 @@ export default function BrasilHaitiBet() {
                 <span className="text-black font-black text-sm">!</span>
               </div>
               <p className="text-[12px] text-gray-200 leading-relaxed">
-                <strong className="text-[#FFDF00]">Fique tranquilo:</strong> na hora de apostar vai aparecer a <strong className="text-white">odd normal</strong>. Se a sua aposta de R$1 bater, a gente turbina pra <strong className="text-[#FFDF00]">odd 20</strong> e você recebe os <strong className="text-white">R$20 em Free Bet.</strong>
+                <strong className="text-[#FFDF00]">Fique tranquilo:</strong> na hora de apostar vai aparecer a <strong className="text-white">odd normal</strong>. Se a sua aposta de R$1 bater, a gente turbina pra <strong className="text-[#FFDF00]">odd 8</strong> e você recebe os <strong className="text-white">R$8 em Free Bet.</strong>
               </p>
             </div>
 
@@ -133,7 +132,7 @@ export default function BrasilHaitiBet() {
                     className={`flex-1 flex flex-col items-center justify-center py-3 rounded-xl border transition-all ${selectedTeam === 'escocia' ? 'bg-[#02A473] border-[#02A473] shadow-[0_0_15px_rgba(2,164,115,0.4)]' : 'bg-black/40 border-white/5 hover:bg-black/60'}`}
                   >
                     <span className={`text-[11px] font-medium mb-1 ${selectedTeam === 'escocia' ? 'text-white' : 'text-gray-400'}`}>1 - Escócia</span>
-                    <span className={`font-black text-base ${selectedTeam === 'escocia' ? 'text-white' : 'text-[#FFDF00]'}`}>2.00</span>
+                    <span className={`font-black text-base ${selectedTeam === 'escocia' ? 'text-white' : 'text-[#FFDF00]'}`}>5.00</span>
                   </button>
                   
                   <button 
@@ -149,7 +148,7 @@ export default function BrasilHaitiBet() {
                     className={`flex-1 flex flex-col items-center justify-center py-3 rounded-xl border transition-all ${selectedTeam === 'brasil' ? 'bg-[#02A473] border-[#02A473] shadow-[0_0_15px_rgba(2,164,115,0.4)]' : 'bg-black/40 border-white/5 hover:bg-black/60'}`}
                   >
                     <span className={`text-[11px] font-medium mb-1 ${selectedTeam === 'brasil' ? 'text-white' : 'text-gray-400'}`}>2 - Brasil</span>
-                    <span className={`font-black text-base ${selectedTeam === 'brasil' ? 'text-white' : 'text-[#FFDF00]'}`}>20.00</span>
+                    <span className={`font-black text-base ${selectedTeam === 'brasil' ? 'text-white' : 'text-[#FFDF00]'}`}>8.00</span>
                   </button>
                 </div>
               </div>
@@ -195,7 +194,7 @@ export default function BrasilHaitiBet() {
                 <h4 className="text-white font-black tracking-wide text-sm">APOSTE R$1</h4>
               </div>
               <p className="text-gray-300 text-[13px] pl-10 leading-relaxed">
-                Clique em Pegar Odd 20. A aposta vai abrir no Brasil pra vencer, você vai colocar R$1 mesmo com a odd normal.
+                Clique em Pegar Odd 8. A aposta vai abrir no Brasil pra vencer, você vai colocar R$1 mesmo com a odd normal.
               </p>
             </div>
 
@@ -212,10 +211,10 @@ export default function BrasilHaitiBet() {
             <div className="bg-[#0a3017]/40 backdrop-blur-md border border-white/5 rounded-[32px] p-6 shadow-lg">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-7 h-7 bg-[#FFDF00] rounded-full flex items-center justify-center text-black font-black text-sm">3</div>
-                <h4 className="text-white font-black tracking-wide text-sm">RECEBA R$20</h4>
+                <h4 className="text-white font-black tracking-wide text-sm">RECEBA R$8</h4>
               </div>
               <p className="text-gray-300 text-[13px] pl-10 leading-relaxed">
-                Caso o Brasil vença o jogo, você ganha a aposta normalmente e ainda recebe R$20 em Free Bet em até 24h.
+                Caso o Brasil vença o jogo, você ganha a aposta normalmente e ainda recebe R$8 em Free Bet em até 24h.
               </p>
             </div>
           </div>
