@@ -7,6 +7,7 @@ export interface CaktoCustomer {
 
 export interface CaktoPixResponse {
   success: boolean;
+  transactionId?: string;
   qrCode?: string;
   qrCodeBase64?: string;
   checkoutUrl?: string;
@@ -37,5 +38,18 @@ export const generateCaktoPix = async (
   } catch (error: any) {
     console.error('Network/Client Error:', error);
     return { success: false, error: `Erro de conexão: ${error.message}` };
+  }
+};
+
+export const checkPaymentStatus = async (transactionId: string): Promise<boolean> => {
+  try {
+    const response = await fetch(`/api/check-payment?id=${transactionId}`);
+    if (!response.ok) return false;
+    
+    const data = await response.json();
+    return data.isPaid === true;
+  } catch (err) {
+    console.error('Error checking payment:', err);
+    return false;
   }
 };

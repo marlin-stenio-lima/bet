@@ -85,6 +85,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
+      transactionId: paymentData.id,
       qrCode: paymentData.pix?.qrCode,
       qrCodeBase64: paymentData.pix?.qrCodeBase64,
       checkoutUrl: paymentData.checkoutUrl

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { X, ArrowLeft, Copy, AlertTriangle, Loader2 } from 'lucide-react';
-import { generateCaktoPix } from '../lib/caktoService';
+import { generateCaktoPix, checkPaymentStatus } from '../lib/caktoService';
 
 interface DepositModalProps {
   isOpen: boolean;
@@ -22,6 +22,8 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
     if (!isOpen) {
       setStep(1);
       setAmount(50);
+      setPixData(null);
+      setTimeLeft(293);
     }
   }, [isOpen]);
 
@@ -32,6 +34,21 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
     }
     return () => clearInterval(timer);
   }, [step, timeLeft]);
+
+  // Polling para checar status do pagamento na Cakto
+  useEffect(() => {
+    let pollTimer: any;
+    if (step === 2 && pixData?.transactionId) {
+      pollTimer = setInterval(async () => {
+        const isPaid = await checkPaymentStatus(pixData.transactionId);
+        if (isPaid) {
+          clearInterval(pollTimer);
+          onDepositSuccess(amount);
+        }
+      }, 5000); // Check every 5 seconds
+    }
+    return () => clearInterval(pollTimer);
+  }, [step, pixData, amount, onDepositSuccess]);
 
   if (!isOpen) return null;
 
