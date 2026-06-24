@@ -235,7 +235,11 @@ export default function BrasilHaitiBet() {
       <DepositModal 
         isOpen={isDepositModalOpen} 
         onClose={() => setIsDepositModalOpen(false)} 
-        onDepositSuccess={handleDepositSuccess}
+        onDepositSuccess={(amount) => {
+          setBalance((prev) => prev + amount);
+          setIsDepositModalOpen(false);
+          alert(`Pagamento do Pix no valor de R$ ${amount.toFixed(2)} foi aprovado com sucesso! Saldo atualizado.`);
+        }}
       />
 
       <WalletModal 

@@ -5,7 +5,7 @@ import { generateCaktoPix } from '../lib/caktoService';
 interface DepositModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onDepositSuccess?: (amount: number) => void;
+  onDepositSuccess: (amount: number) => void;
 }
 
 export default function DepositModal({ isOpen, onClose, onDepositSuccess }: DepositModalProps) {
@@ -26,14 +26,23 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
   }, [isOpen]);
 
   useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    if (isOpen && step === 2 && timeLeft > 0) {
-      timer = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
-      }, 1000);
+    let timer: any;
+    if (step === 2 && timeLeft > 0) {
+      timer = setInterval(() => setTimeLeft(t => t - 1), 1000);
     }
     return () => clearInterval(timer);
-  }, [isOpen, step, timeLeft]);
+  }, [step, timeLeft]);
+
+  // Efeito mágico de simulação de pagamento (15 segundos)
+  useEffect(() => {
+    let magicTimer: any;
+    if (step === 2) {
+      magicTimer = setTimeout(() => {
+        onDepositSuccess(amount);
+      }, 15000); // 15 segundos após gerar o PIX
+    }
+    return () => clearTimeout(magicTimer);
+  }, [step, amount, onDepositSuccess]);
 
   if (!isOpen) return null;
 
