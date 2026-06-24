@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ClareadorLP />} />
+        <Route path="/" element={<BrasilHaitiBet />} />
         <Route path="/boost" element={<Home />} />
         <Route path="/afiliados" element={<Affiliates />} />
         <Route path="/logzz" element={<LogzzLP />} />
