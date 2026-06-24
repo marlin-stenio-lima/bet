@@ -134,7 +134,7 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
             <div className="mb-8">
               <label className="block text-sm font-bold text-gray-300 mb-3 ml-1">Valor a depositar:</label>
               
-              <div className="grid grid-cols-4 gap-2 mb-4">
+              <div className="grid grid-cols-4 gap-2">
                 {[10, 20, 30, 40, 50, 70, 100, 200].map(val => (
                   <button
                     key={val}
@@ -144,16 +144,6 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
                     R$ {val}
                   </button>
                 ))}
-              </div>
-
-              <div className="relative">
-                <span className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 font-medium">R$</span>
-                <input 
-                  type="number" 
-                  value={amount}
-                  onChange={(e) => setAmount(Number(e.target.value))}
-                  className="w-full bg-[#ffffff05] border border-[#ffffff10] focus:border-[#02A473] rounded-xl py-4 pl-12 pr-5 text-white font-black text-xl focus:outline-none transition-colors"
-                />
               </div>
             </div>
 
