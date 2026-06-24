@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { X, Wallet, ArrowDownCircle, CheckCircle, AlertTriangle } from 'lucide-react';
 
 interface WalletModalProps {

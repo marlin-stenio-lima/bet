@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowRight, AlertCircle, Wallet } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, Wallet } from 'lucide-react';
 import DepositModal from '../components/DepositModal';
 import WalletModal from '../components/WalletModal';
 

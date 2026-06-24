@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { X, ArrowLeft, Copy, AlertTriangle, Loader2, CheckCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, ArrowLeft, Copy, AlertTriangle, Loader2 } from 'lucide-react';
 import { generateCaktoPix } from '../lib/caktoService';
 
 interface DepositModalProps {
@@ -27,7 +27,7 @@ export default function DepositModal({ isOpen, onClose, onDepositSuccess }: Depo
   }, [isOpen]);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setTimeout>;
     if (isOpen && step === 2 && timeLeft > 0) {
       timer = setInterval(() => {
         setTimeLeft((prev) => prev - 1);
