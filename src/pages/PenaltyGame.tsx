@@ -145,16 +145,26 @@ export default function PenaltyGame() {
         <div className="absolute top-[10%] left-[15%] right-[15%] h-[40%] border-t-8 border-l-8 border-r-8 border-white/80 rounded-t-lg z-10"></div>
         <div className="absolute top-[10%] left-[15%] right-[15%] h-[40%] bg-[url('https://www.transparenttextures.com/patterns/net.png')] opacity-30 z-0"></div>
 
+        {/* Estilos para animação do goleiro */}
+        <style>
+          {`
+            @keyframes idleGoalkeeper {
+              0%, 100% { transform: translateX(-50%) translateX(-15px); }
+              50% { transform: translateX(-50%) translateX(15px); }
+            }
+            .animate-idle {
+              animation: idleGoalkeeper 2s ease-in-out infinite;
+            }
+          `}
+        </style>
+
         {/* Goleiro */}
-        <div className={`absolute top-[25%] w-16 h-20 transition-all duration-300 z-20 flex items-center justify-center
-          ${goalkeeperPos === 'center' ? 'left-1/2 -translate-x-1/2' : ''}
-          ${goalkeeperPos === 'left' ? 'left-[25%] -translate-x-1/2 rotate-[-45deg]' : ''}
-          ${goalkeeperPos === 'right' ? 'left-[75%] -translate-x-1/2 rotate-[45deg]' : ''}
+        <div className={`absolute top-[25%] w-24 h-24 transition-all duration-300 z-20 flex items-center justify-center
+          ${goalkeeperPos === 'center' ? 'left-1/2 -translate-x-1/2 animate-idle' : ''}
+          ${goalkeeperPos === 'left' ? 'left-[25%] -translate-x-1/2 rotate-[-45deg] scale-110' : ''}
+          ${goalkeeperPos === 'right' ? 'left-[75%] -translate-x-1/2 rotate-[45deg] scale-110' : ''}
         `}>
-          <div className="w-12 h-16 bg-red-600 rounded-t-2xl rounded-b-md shadow-lg border-2 border-red-800 flex flex-col items-center pt-2">
-            <div className="w-6 h-6 bg-yellow-200 rounded-full mb-1"></div>
-            <div className="text-[10px] font-black text-white">1</div>
-          </div>
+          <img src="/goalkeeper.png" alt="Goleiro" className="w-full h-full object-contain drop-shadow-2xl" />
         </div>
 
         {/* Bola */}
