@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Coins } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Canvas } from '@react-three/fiber';
+import { Scene3D } from '../components/Penalty3D/Scene3D';
 
 export default function PenaltyGame() {
   const navigate = useNavigate();
@@ -140,49 +142,30 @@ export default function PenaltyGame() {
           </div>
         </div>
 
-        {/* Game Area */}
-        <div className="flex-1 w-full relative z-10 flex flex-col justify-end">
-          
-          {/* Grass Area - exactly 40% of the game area height */}
-          <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-[#0e421c] to-[#1a612b] z-0 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
-             {/* Penalty Box Line */}
-            <div className="absolute top-0 left-[10%] right-[10%] h-full border-t-[3px] border-l-[3px] border-r-[3px] border-white/30"></div>
-            {/* Penalty Spot */}
-            <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-5 h-5 bg-white/60 rounded-full shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></div>
-          </div>
-
-          {/* Goal Net - Sitting right on the grass line */}
-          <div className="absolute bottom-[40%] left-[5%] right-[5%] h-[35%] border-t-[8px] border-l-[8px] border-r-[8px] border-[#cbd5e1] shadow-2xl z-0"></div>
-          <div className="absolute bottom-[40%] left-[5%] right-[5%] h-[35%] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 z-0 border-t-8 border-transparent"></div>
+        {/* Game Area (3D Canvas) */}
+        <div className="flex-1 w-full relative z-10 bg-black">
+          <Canvas shadows>
+            <React.Suspense fallback={
+              <mesh>
+                <boxGeometry args={[1, 1, 1]} />
+                <meshBasicMaterial color="red" />
+              </mesh>
+            }>
+              <Scene3D 
+                gameState={gameState} 
+                goalkeeperPos={goalkeeperPos} 
+                ballPos={ballPos} 
+                isGoal={isGoal} 
+              />
+            </React.Suspense>
+          </Canvas>
 
           {/* Current Multiplier Banner */}
           {gameState !== 'idle' && (
-            <div className="absolute top-[10%] left-1/2 -translate-x-1/2 text-white font-black text-3xl drop-shadow-md z-30">
+            <div className="absolute top-[10%] left-1/2 -translate-x-1/2 text-white font-black text-3xl drop-shadow-md z-30 pointer-events-none">
               x{MULTIPLIERS[consecutiveGoals].toFixed(2)}
             </div>
           )}
-
-          {/* Goalkeeper Placeholder (Fixed base sitting on the grass line) */}
-          <div className={`absolute bottom-[40%] w-24 h-28 transition-all duration-500 z-20 flex flex-col items-center justify-end
-            ${goalkeeperPos === 'center' ? 'left-1/2 -translate-x-1/2' : ''}
-            ${goalkeeperPos === 'left' ? 'left-[25%] -translate-x-1/2 translate-y-4 -rotate-12' : ''}
-            ${goalkeeperPos === 'right' ? 'left-[75%] -translate-x-1/2 translate-y-4 rotate-12' : ''}
-          `}>
-            <div className="w-14 h-20 bg-blue-600 rounded-t-3xl rounded-b-md shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-2 border-blue-800 flex flex-col items-center pt-2">
-              <div className="w-7 h-7 bg-[#fcd34d] rounded-full mb-1 border-2 border-yellow-600"></div>
-              <div className="w-full h-2 bg-blue-800 mt-auto"></div>
-            </div>
-          </div>
-
-          {/* Ball */}
-          <div className={`absolute w-12 h-12 bg-white rounded-full shadow-[inset_-4px_-4px_10px_rgba(0,0,0,0.4),0_15px_15px_rgba(0,0,0,0.6)] z-30 transition-all duration-500 ease-out
-            ${ballPos === 'center' && gameState === 'idle' ? 'bottom-[12%] left-1/2 -translate-x-1/2 scale-100' : ''}
-            ${ballPos === 'center' && gameState !== 'idle' ? 'bottom-[42%] left-1/2 -translate-x-1/2 scale-75' : ''}
-            ${ballPos === 'left' ? 'bottom-[42%] left-[20%] -translate-x-1/2 scale-75' : ''}
-            ${ballPos === 'right' ? 'bottom-[42%] left-[80%] -translate-x-1/2 scale-75' : ''}
-          `}>
-            <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d3/Soccerball.svg')] bg-cover opacity-95 rounded-full"></div>
-          </div>
         </div>
 
         {/* Bottom Controls Area */}
