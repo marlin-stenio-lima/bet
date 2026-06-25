@@ -48,7 +48,7 @@ export default function PenaltyGame() {
     // if (projectedBalance >= 100) willScore = false;
     // if (consecutiveGoals >= 2) willScore = Math.random() > 0.8;
     
-    let willScore = true; // SEMPRE GANHAR PARA TESTES
+    let willScore = false; // SEMPRE PERDER (CASA GANHA) PARA TESTAR ANIMAÇÕES DE DEFESA
 
     setBallPos(direction);
 
