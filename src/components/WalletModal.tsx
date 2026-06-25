@@ -56,18 +56,29 @@ export default function WalletModal({ isOpen, onClose, balance, onWithdraw }: Wa
                 R$ {balance.toFixed(2).replace('.', ',')}
               </h3>
 
-              <div className="bg-[#ffffff05] rounded-xl p-4 mb-6 border border-[#ffffff10]">
+              <div className="bg-[#ffffff05] rounded-xl p-4 mb-4 border border-[#ffffff10]">
                 <div className="flex items-center gap-3 text-left">
                   <AlertTriangle className="w-6 h-6 text-[#FFDF00] shrink-0" />
                   <p className="text-xs text-gray-300">
-                    O valor mínimo para saque é de <strong>R$ 100,00</strong>. Certifique-se de ter saldo suficiente antes de solicitar.
+                    O valor mínimo para saque é de <strong>R$ 100,00</strong>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-[#ffffff05] rounded-xl p-4 mb-6 border border-[#ffffff10]">
+                <div className="flex items-center gap-3 text-left">
+                  <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center shrink-0">
+                    <span className="text-red-500 text-xs font-black">X</span>
+                  </div>
+                  <p className="text-xs text-gray-300">
+                    Você precisa de <strong>2 indicações ativas</strong> para liberar o seu saque. (Atual: 0/2)
                   </p>
                 </div>
               </div>
 
               <button 
-                onClick={handleWithdrawClick}
-                className="w-full bg-[#02A473] hover:bg-[#028b61] text-white font-bold text-lg py-4 rounded-xl transition-colors shadow-lg shadow-[#02A473]/20 flex justify-center items-center gap-2"
+                onClick={() => alert("Convide 2 amigos usando seu link para liberar o saque.")}
+                className="w-full bg-gray-600 cursor-not-allowed text-white font-bold text-lg py-4 rounded-xl transition-colors shadow-lg flex justify-center items-center gap-2"
               >
                 <ArrowDownCircle className="w-5 h-5" /> SOLICITAR SAQUE
               </button>

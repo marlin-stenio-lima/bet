@@ -6,10 +6,8 @@ import ClareadorLP from './pages/ClareadorLP';
 import ClareadorLPZap from './pages/ClareadorLPZap';
 import AlivaxLP from './pages/AlivaxLP';
 import BrasilHaitiBet from './pages/BrasilHaitiBet';
-
-function AdminDashboard() {
-  return <div className="p-8"><h1 className="text-2xl font-bold">Admin Dashboard</h1></div>;
-}
+import PenaltyGame from './pages/PenaltyGame';
+import AdminDashboard from './pages/AdminDashboard';
 
 function AffiliateDashboard() {
   return <div className="p-8"><h1 className="text-2xl font-bold">Painel do Afiliado</h1></div>;
@@ -20,6 +18,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<BrasilHaitiBet />} />
+        <Route path="/penalty" element={<PenaltyGame />} />
         <Route path="/boost" element={<Home />} />
         <Route path="/afiliados" element={<Affiliates />} />
         <Route path="/logzz" element={<LogzzLP />} />
