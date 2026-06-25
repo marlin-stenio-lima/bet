@@ -60,8 +60,8 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
             }
         }
         
-        ballRef.current.position.lerp(target, 0.1);
-        ballRef.current.rotation.x -= 0.5; // Bola rodando rápido no ar
+        ballRef.current.position.lerp(target, 0.035);
+        ballRef.current.rotation.x -= 0.2; // Bola rodando um pouco mais devagar no ar
       }
     }
   });
