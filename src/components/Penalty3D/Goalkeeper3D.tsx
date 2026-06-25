@@ -9,42 +9,32 @@ interface Goalkeeper3DProps {
 export function Goalkeeper3D({ action }: Goalkeeper3DProps) {
   const group = useRef<THREE.Group>(null);
 
-  // Load the main model with skin
-  const mainModel = useFBX('/models/Goalkeeper Body Block.fbx');
+  const idleFile = useFBX('/models/idle.fbx');
+  const diveLeftFile = useFBX('/models/diveLeft.fbx');
+  const diveRightFile = useFBX('/models/diveRight.fbx');
   
-  // Load animations from other files
-  const diveRightFile = useFBX('/models/Goalkeeper Body Block (1).fbx');
-  const catchCenterFile = useFBX('/models/Goalkeeper Catch.fbx');
-  const diveLeftFile = useFBX('/models/Goalkeeper Catch (1).fbx');
-  
-  // Extract animations
-  const idleAnim = mainModel.animations[0];
-  const diveRightAnim = diveRightFile.animations[0];
-  const catchCenterAnim = catchCenterFile.animations[0];
+  const idleAnim = idleFile.animations[0];
   const diveLeftAnim = diveLeftFile.animations[0];
+  const diveRightAnim = diveRightFile.animations[0];
 
-  // Rename animations for easy reference
   if (idleAnim) idleAnim.name = 'idle';
-  if (diveRightAnim) diveRightAnim.name = 'diveRight';
-  if (catchCenterAnim) catchCenterAnim.name = 'catchCenter';
   if (diveLeftAnim) diveLeftAnim.name = 'diveLeft';
+  if (diveRightAnim) diveRightAnim.name = 'diveRight';
 
-  const animations = [idleAnim, diveRightAnim, catchCenterAnim, diveLeftAnim].filter(Boolean);
-
+  const animations = [idleAnim, diveLeftAnim, diveRightAnim].filter(Boolean);
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-    // Stop all current animations
     Object.values(actions).forEach(a => a?.stop());
     
-    // Play the requested animation
-    const currentAction = actions[action];
+    const animToPlay = action === 'catchCenter' ? 'idle' : action;
+    const currentAction = actions[animToPlay];
+    
     if (currentAction) {
       currentAction.reset().play();
-      
-      if (action === 'idle') {
+      if (animToPlay === 'idle') {
         currentAction.setLoop(THREE.LoopRepeat, Infinity);
-        currentAction.timeScale = 0.1; // Slow down the idle animation if it's a dive
+        currentAction.timeScale = 1; 
       } else {
         currentAction.setLoop(THREE.LoopOnce, 1);
         currentAction.clampWhenFinished = true;
@@ -54,13 +44,11 @@ export function Goalkeeper3D({ action }: Goalkeeper3DProps) {
 
   return (
     <group ref={group} dispose={null}>
-      <primitive object={mainModel} scale={0.025} position={[0, 0, -5]} rotation={[0, 0, 0]} />
+      <primitive object={idleFile} scale={0.025} position={[0, 0, -5]} rotation={[0, 0, 0]} />
     </group>
   );
 }
 
-// Pre-load the models
-useFBX.preload('/models/Goalkeeper Body Block.fbx');
-useFBX.preload('/models/Goalkeeper Body Block (1).fbx');
-useFBX.preload('/models/Goalkeeper Catch.fbx');
-useFBX.preload('/models/Goalkeeper Catch (1).fbx');
+useFBX.preload('/models/idle.fbx');
+useFBX.preload('/models/diveLeft.fbx');
+useFBX.preload('/models/diveRight.fbx');

@@ -37,32 +37,33 @@ export default function PenaltyGame() {
     setBallPos('center');
   };
 
-  const handleKick = (direction: 'left' | 'right' | 'center') => {
+  const handleKick = (direction: 'left' | 'right') => {
     if (gameState !== 'playing') return;
 
     const nextMultiplier = MULTIPLIERS[consecutiveGoals + 1] || MULTIPLIERS[MULTIPLIERS.length - 1];
     const potentialWin = betAmount * nextMultiplier;
     const projectedBalance = balance + potentialWin;
 
-    // let willScore = Math.random() > 0.4;
-    // if (projectedBalance >= 100) willScore = false;
-    // if (consecutiveGoals >= 2) willScore = Math.random() > 0.8;
-    
     let willScore = false; // SEMPRE PERDER (CASA GANHA) PARA TESTAR ANIMAÇÕES DE DEFESA
 
-    setBallPos(direction);
-
+    const options = ['left', 'right'].filter(d => d !== direction);
+    
+    let goalkeeperDir: 'center' | 'left' | 'right';
     if (willScore) {
-      const wrongDirs = ['left', 'center', 'right'].filter(d => d !== direction);
-      setGoalkeeperPos(wrongDirs[Math.floor(Math.random() * wrongDirs.length)] as any);
+      // Pula para o lado errado
+      goalkeeperDir = options[Math.floor(Math.random() * options.length)] as any;
       setIsGoal(true);
       setConsecutiveGoals(prev => prev + 1);
       setGameState('result');
     } else {
-      setGoalkeeperPos(direction);
+      // Pula para o lado certo
+      goalkeeperDir = direction;
       setIsGoal(false);
       setGameState('result');
     }
+
+    setBallPos(direction);
+    setGoalkeeperPos(goalkeeperDir);
   };
 
   const handleCashout = () => {
@@ -169,15 +170,20 @@ export default function PenaltyGame() {
           <div className="p-4">
             
             {gameState === 'playing' ? (
-              <div className="flex gap-3">
-                <button onClick={() => handleKick('left')} className="flex-1 py-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors">
-                  <ArrowLeft className="w-7 h-7 mx-auto text-gray-300" />
+              <div className="flex justify-center gap-6 z-20">
+                <button 
+                  onClick={() => handleKick('left')}
+                  disabled={gameState !== 'playing' || balance < betAmount}
+                  className="w-16 h-16 rounded-full bg-red-600 border-b-4 border-red-800 shadow-[0_5px_15px_rgba(220,38,38,0.5)] flex items-center justify-center hover:bg-red-500 active:translate-y-1 active:border-b-0 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="w-8 h-8 rounded-full border-4 border-white opacity-80 pointer-events-none"></div>
                 </button>
-                <button onClick={() => handleKick('center')} className="flex-1 py-4 bg-white/5 border border-white/10 rounded-xl font-black text-gray-300 hover:bg-white/10 transition-colors text-sm">
-                  MEIO
-                </button>
-                <button onClick={() => handleKick('right')} className="flex-1 py-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors">
-                  <ArrowLeft className="w-7 h-7 mx-auto text-gray-300 rotate-180" />
+                <button 
+                  onClick={() => handleKick('right')}
+                  disabled={gameState !== 'playing' || balance < betAmount}
+                  className="w-16 h-16 rounded-full bg-blue-600 border-b-4 border-blue-800 shadow-[0_5px_15px_rgba(37,99,235,0.5)] flex items-center justify-center hover:bg-blue-500 active:translate-y-1 active:border-b-0 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="w-8 h-8 rounded-full border-4 border-white opacity-80 pointer-events-none"></div>
                 </button>
               </div>
             ) : gameState === 'result' ? (
