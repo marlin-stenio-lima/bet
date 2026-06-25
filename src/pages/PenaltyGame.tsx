@@ -114,16 +114,16 @@ export default function PenaltyGame() {
         <span className="font-bold text-sm tracking-widest uppercase">Penalty Shoot-Out</span>
       </div>
 
-      {/* Main Content Overlay */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between pb-8">
-        
-        {/* Multiplier Display */}
-        <div className="flex-1 flex items-center justify-center pointer-events-none mt-10">
-          <div className="text-5xl font-black text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
-            x{gameState === 'playing' ? MULTIPLIERS[consecutiveGoals].toFixed(2) : (consecutiveGoals > 0 ? MULTIPLIERS[consecutiveGoals - 1].toFixed(2) : '1.00')}
-          </div>
+      {/* Multiplier Display - Moved to TOP sky area */}
+      <div className="absolute top-[15%] w-full flex justify-center pointer-events-none z-10">
+        <div className="text-6xl font-black text-white drop-shadow-[0_5px_15px_rgba(0,0,0,1)] tracking-tighter">
+          x{gameState === 'playing' ? MULTIPLIERS[consecutiveGoals].toFixed(2) : (consecutiveGoals > 0 ? MULTIPLIERS[consecutiveGoals - 1].toFixed(2) : '1.00')}
         </div>
+      </div>
 
+      {/* Main Content Overlay */}
+      <div className="relative z-10 flex-1 flex flex-col justify-end pb-8">
+        
         {/* Bottom UI */}
         <div className="px-4">
           <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-4 border border-white/10 shadow-lg">

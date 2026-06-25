@@ -82,11 +82,11 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
         <meshStandardMaterial color="#115e29" roughness={0.9} />
       </mesh>
 
-      {/* Faixas do Gramado */}
-      {[...Array(20)].map((_, i) => (
-        <mesh key={i} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, -50 + i * 6]} receiveShadow>
-          <planeGeometry args={[100, 3]} />
-          <meshStandardMaterial color="#0b451c" roughness={0.9} transparent opacity={0.4} />
+      {/* Faixas do Gramado (Mais densas e visíveis para mobile) */}
+      {[...Array(30)].map((_, i) => (
+        <mesh key={i} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, -40 + i * 4]} receiveShadow>
+          <planeGeometry args={[100, 2]} />
+          <meshStandardMaterial color="#0b451c" roughness={0.9} transparent opacity={0.6} />
         </mesh>
       ))}
 
