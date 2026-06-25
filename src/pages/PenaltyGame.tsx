@@ -92,82 +92,41 @@ export default function PenaltyGame() {
   };
 
   return (
-    <div className="min-h-screen bg-[#051124] text-white font-sans flex flex-col items-center justify-center relative overflow-hidden w-full">
+    <div className="min-h-screen bg-[#0a101f] text-white flex flex-col font-sans relative overflow-hidden">
       
-      <div className="w-full max-w-md h-[100dvh] max-h-[900px] bg-[#0c1f3a] relative shadow-2xl overflow-hidden flex flex-col">
+      {/* 3D Canvas - Full Screen Background */}
+      <div className="absolute inset-0 z-0">
+        <Canvas shadows camera={{ position: [0, 2.5, 8], fov: 60 }}>
+          <Scene3D 
+            gameState={gameState} 
+            goalkeeperPos={goalkeeperPos} 
+            ballPos={ballPos}
+            isGoal={isGoal}
+          />
+        </Canvas>
+      </div>
+
+      {/* Header - Overlaid */}
+      <div className="relative z-10 bg-gradient-to-b from-black/80 to-transparent p-4 flex items-center gap-4">
+        <button onClick={() => navigate('/')} className="p-2 bg-black/40 backdrop-blur-sm rounded-full hover:bg-white/20 transition">
+          <ArrowLeft className="w-5 h-5 text-white" />
+        </button>
+        <span className="font-bold text-sm tracking-widest uppercase">Penalty Shoot-Out</span>
+      </div>
+
+      {/* Main Content Overlay */}
+      <div className="relative z-10 flex-1 flex flex-col justify-between pb-8">
         
-        {/* Sky Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#010812] to-[#0a1f33] z-0"></div>
-
-        {/* Spotlights */}
-        <div className="absolute top-[-10%] left-1/4 w-32 h-[600px] bg-cyan-400/5 blur-3xl rotate-[25deg] z-0"></div>
-        <div className="absolute top-[-10%] right-1/4 w-32 h-[600px] bg-cyan-400/5 blur-3xl rotate-[-25deg] z-0"></div>
-
-        {/* Header */}
-        <div className="w-full flex justify-between items-center p-4 z-10">
-          <div className="flex items-center gap-2">
-            <button onClick={() => navigate('/')} className="p-2 bg-black/40 backdrop-blur-sm rounded-full hover:bg-white/20 transition">
-              <ArrowLeft className="w-5 h-5 text-white" />
-            </button>
-            <span className="text-gray-300 font-bold text-xs tracking-widest uppercase">Penalty Shoot-Out</span>
+        {/* Multiplier Display */}
+        <div className="flex-1 flex items-center justify-center pointer-events-none mt-10">
+          <div className="text-5xl font-black text-white drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">
+            x{gameState === 'playing' ? MULTIPLIERS[consecutiveGoals].toFixed(2) : (consecutiveGoals > 0 ? MULTIPLIERS[consecutiveGoals - 1].toFixed(2) : '1.00')}
           </div>
         </div>
 
-        {/* Progress Bar (Multipliers) */}
-        <div className="w-full px-6 mt-2 z-10">
-          <div className="flex justify-between items-end mb-2 px-1">
-            <div className="flex gap-1.5">
-              <div className="w-6 h-3 bg-green-600 rounded-sm"></div>
-              <div className="w-6 h-3 bg-red-600 rounded-sm"></div>
-            </div>
-            <div className="flex gap-1.5">
-              <div className="w-6 h-3 bg-yellow-400 rounded-sm"></div>
-              <div className="w-6 h-3 bg-blue-600 rounded-sm"></div>
-            </div>
-          </div>
-          <div className="w-full h-1.5 bg-white/20 rounded-full relative">
-            <div 
-              className="absolute top-0 left-0 h-full bg-[#3b82f6] rounded-full transition-all duration-500"
-              style={{ width: `${(consecutiveGoals / 5) * 100}%` }}
-            ></div>
-            {MULTIPLIERS.slice(1).map((mult, idx) => (
-              <div key={idx} className="absolute top-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: `${((idx + 1) / 5) * 100}%` }}>
-                <div className={`w-3.5 h-3.5 rounded-full border-2 border-[#0c1f3a] ${consecutiveGoals >= idx + 1 ? 'bg-blue-400 shadow-[0_0_8px_#60a5fa]' : 'bg-gray-500'}`}></div>
-                <span className={`text-[9px] mt-1 font-black ${consecutiveGoals >= idx + 1 ? 'text-white' : 'text-gray-500'}`}>x{mult}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Game Area (3D Canvas) */}
-        <div className="flex-1 w-full relative z-10">
-          <Canvas shadows camera={{ position: [0, 2.5, 9], fov: 55 }} gl={{ alpha: true, antialias: true }}>
-            <React.Suspense fallback={
-              <mesh>
-                <boxGeometry args={[1, 1, 1]} />
-                <meshBasicMaterial color="red" />
-              </mesh>
-            }>
-              <Scene3D 
-                gameState={gameState} 
-                goalkeeperPos={goalkeeperPos} 
-                ballPos={ballPos} 
-                isGoal={isGoal} 
-              />
-            </React.Suspense>
-          </Canvas>
-
-          {/* Current Multiplier Banner */}
-          {gameState !== 'idle' && (
-            <div className="absolute top-[10%] left-1/2 -translate-x-1/2 text-white font-black text-3xl drop-shadow-md z-30 pointer-events-none">
-              x{MULTIPLIERS[consecutiveGoals].toFixed(2)}
-            </div>
-          )}
-        </div>
-
-        {/* Bottom Controls Area */}
-        <div className="w-full bg-[#071221] border-t border-white/5 z-40 pb-safe shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
-          <div className="p-4">
+        {/* Bottom UI */}
+        <div className="px-4">
+          <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-4 border border-white/10 shadow-lg">
             
             {gameState === 'playing' ? (
               <div className="flex justify-center gap-6 z-20">
