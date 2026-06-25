@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { PerspectiveCamera, Environment } from '@react-three/drei';
 import { Goalkeeper3D } from './Goalkeeper3D';
@@ -47,16 +47,16 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
         
         // Se o goleiro pegar, a bola para na mão dele (um pouco mais para frente e no centro)
         if (!isGoal) {
-            target.z = -3.8; 
+            target.z = -4.0; 
             if (ballPos === 'center') {
-              target.y = 1.8; // Altura da barriga/peito do goleiro
+              target.y = 1.3; 
               target.x = 0;
             } else if (ballPos === 'left') {
-              target.y = 0.5; // Altura no chão
-              target.x = -2.5; // Posição do corpo pulando
+              target.y = 1.0; 
+              target.x = -3.5; 
             } else if (ballPos === 'right') {
-              target.y = 0.5; // Altura no chão
-              target.x = 2.5; // Posição do corpo pulando
+              target.y = 1.0; 
+              target.x = 3.5; 
             }
         }
         
@@ -76,13 +76,21 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
         <StadiumBackground />
       </React.Suspense>
 
-      {/* Gramado */}
+      {/* Gramado Base */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
         <planeGeometry args={[100, 100]} />
         <meshStandardMaterial color="#115e29" roughness={0.9} />
       </mesh>
 
-      {/* Trave (Aumentada para caber o goleiro) */}
+      {/* Faixas do Gramado */}
+      {[...Array(20)].map((_, i) => (
+        <mesh key={i} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, -50 + i * 6]} receiveShadow>
+          <planeGeometry args={[100, 3]} />
+          <meshStandardMaterial color="#0b451c" roughness={0.9} transparent opacity={0.4} />
+        </mesh>
+      ))}
+
+      {/* Trave */}
       <mesh position={[-4.5, 2, -5]} castShadow>
         <cylinderGeometry args={[0.08, 0.08, 4]} />
         <meshStandardMaterial color="#cbd5e1" />
