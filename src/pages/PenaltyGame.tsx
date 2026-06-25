@@ -95,24 +95,14 @@ export default function PenaltyGame() {
   return (
     <div className="min-h-screen bg-[#051124] text-white font-sans flex flex-col items-center justify-center relative overflow-hidden w-full">
       
-      {/* Background container constrained to mobile ratio to look good on desktop too */}
       <div className="w-full max-w-md h-[100dvh] max-h-[900px] bg-[#0c1f3a] relative shadow-2xl overflow-hidden flex flex-col">
         
         {/* Sky Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020b18] to-[#0f2e4a] z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#010812] to-[#0a1f33] z-0"></div>
 
         {/* Spotlights */}
-        <div className="absolute top-[-10%] left-1/4 w-40 h-[600px] bg-cyan-400/10 blur-3xl rotate-[25deg] z-0"></div>
-        <div className="absolute top-[-10%] right-1/4 w-40 h-[600px] bg-cyan-400/10 blur-3xl rotate-[-25deg] z-0"></div>
-
-        {/* Grass Background */}
-        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-[#092e13] to-[#207532] z-0 border-t border-[#34a54c]">
-          <div className="absolute inset-0 opacity-20 bg-[repeating-linear-gradient(90deg,transparent,transparent_20px,rgba(0,0,0,0.3)_20px,rgba(0,0,0,0.3)_40px)]"></div>
-          {/* Penalty Box Line */}
-          <div className="absolute top-[20%] left-[10%] right-[10%] h-[80%] border-t-[4px] border-l-[4px] border-r-[4px] border-white/60"></div>
-          {/* Penalty Spot */}
-          <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-6 h-6 bg-white/60 rounded-full"></div>
-        </div>
+        <div className="absolute top-[-10%] left-1/4 w-32 h-[600px] bg-cyan-400/5 blur-3xl rotate-[25deg] z-0"></div>
+        <div className="absolute top-[-10%] right-1/4 w-32 h-[600px] bg-cyan-400/5 blur-3xl rotate-[-25deg] z-0"></div>
 
         {/* Header */}
         <div className="w-full flex justify-between items-center p-4 z-10">
@@ -153,54 +143,50 @@ export default function PenaltyGame() {
         {/* Game Area */}
         <div className="flex-1 w-full relative z-10 flex flex-col justify-end">
           
-          {/* Goal Net */}
-          <div className="absolute bottom-[40%] left-[5%] right-[5%] h-[35%] border-t-[8px] border-l-[8px] border-r-[8px] border-[#e2e8f0] rounded-t-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-0"></div>
-          <div className="absolute bottom-[40%] left-[5%] right-[5%] h-[35%] opacity-30 bg-[url('https://www.transparenttextures.com/patterns/net.png')] z-0"></div>
+          {/* Grass Area - exactly 40% of the game area height */}
+          <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-[#0e421c] to-[#1a612b] z-0 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
+             {/* Penalty Box Line */}
+            <div className="absolute top-0 left-[10%] right-[10%] h-full border-t-[3px] border-l-[3px] border-r-[3px] border-white/30"></div>
+            {/* Penalty Spot */}
+            <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-5 h-5 bg-white/60 rounded-full shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></div>
+          </div>
+
+          {/* Goal Net - Sitting right on the grass line */}
+          <div className="absolute bottom-[40%] left-[5%] right-[5%] h-[35%] border-t-[8px] border-l-[8px] border-r-[8px] border-[#cbd5e1] shadow-2xl z-0"></div>
+          <div className="absolute bottom-[40%] left-[5%] right-[5%] h-[35%] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 z-0 border-t-8 border-transparent"></div>
 
           {/* Current Multiplier Banner */}
           {gameState !== 'idle' && (
-            <div className="absolute top-[10%] left-1/2 -translate-x-1/2 text-white font-black text-3xl drop-shadow-[0_4px_10px_rgba(0,0,0,1)] z-30">
+            <div className="absolute top-[10%] left-1/2 -translate-x-1/2 text-white font-black text-3xl drop-shadow-md z-30">
               x{MULTIPLIERS[consecutiveGoals].toFixed(2)}
             </div>
           )}
 
-          <style>
-            {`
-              @keyframes idleGoalkeeper {
-                0%, 100% { transform: translateX(-50%) translateY(0); }
-                50% { transform: translateX(-50%) translateY(-3px); }
-              }
-              .animate-idle {
-                animation: idleGoalkeeper 2s ease-in-out infinite;
-              }
-            `}
-          </style>
-
-          {/* Goalkeeper Placeholder */}
-          <div className={`absolute bottom-[40%] w-32 h-32 transition-all duration-500 z-20 flex flex-col items-center justify-end
-            ${goalkeeperPos === 'center' ? 'left-1/2 -translate-x-1/2 animate-idle' : ''}
-            ${goalkeeperPos === 'left' ? 'left-[25%] -translate-x-1/2' : ''}
-            ${goalkeeperPos === 'right' ? 'left-[75%] -translate-x-1/2' : ''}
+          {/* Goalkeeper Placeholder (Fixed base sitting on the grass line) */}
+          <div className={`absolute bottom-[40%] w-24 h-28 transition-all duration-500 z-20 flex flex-col items-center justify-end
+            ${goalkeeperPos === 'center' ? 'left-1/2 -translate-x-1/2' : ''}
+            ${goalkeeperPos === 'left' ? 'left-[25%] -translate-x-1/2 translate-y-4 -rotate-12' : ''}
+            ${goalkeeperPos === 'right' ? 'left-[75%] -translate-x-1/2 translate-y-4 rotate-12' : ''}
           `}>
-            <div className="w-16 h-20 bg-blue-600 rounded-t-3xl rounded-b-md shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-2 border-blue-800 flex flex-col items-center pt-2">
-              <div className="w-8 h-8 bg-[#fcd34d] rounded-full mb-1"></div>
-              <div className="text-[10px] font-black text-white">1</div>
+            <div className="w-14 h-20 bg-blue-600 rounded-t-3xl rounded-b-md shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-2 border-blue-800 flex flex-col items-center pt-2">
+              <div className="w-7 h-7 bg-[#fcd34d] rounded-full mb-1 border-2 border-yellow-600"></div>
+              <div className="w-full h-2 bg-blue-800 mt-auto"></div>
             </div>
           </div>
 
           {/* Ball */}
-          <div className={`absolute w-16 h-16 bg-white rounded-full shadow-[inset_-6px_-6px_15px_rgba(0,0,0,0.6),0_10px_15px_rgba(0,0,0,0.6)] z-30 transition-all duration-500 ease-out
-            ${ballPos === 'center' && gameState === 'idle' ? 'bottom-[15%] left-1/2 -translate-x-1/2 scale-100' : ''}
+          <div className={`absolute w-12 h-12 bg-white rounded-full shadow-[inset_-4px_-4px_10px_rgba(0,0,0,0.4),0_15px_15px_rgba(0,0,0,0.6)] z-30 transition-all duration-500 ease-out
+            ${ballPos === 'center' && gameState === 'idle' ? 'bottom-[12%] left-1/2 -translate-x-1/2 scale-100' : ''}
             ${ballPos === 'center' && gameState !== 'idle' ? 'bottom-[42%] left-1/2 -translate-x-1/2 scale-75' : ''}
             ${ballPos === 'left' ? 'bottom-[42%] left-[20%] -translate-x-1/2 scale-75' : ''}
             ${ballPos === 'right' ? 'bottom-[42%] left-[80%] -translate-x-1/2 scale-75' : ''}
           `}>
-            <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d3/Soccerball.svg')] bg-cover opacity-90 rounded-full"></div>
+            <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/d/d3/Soccerball.svg')] bg-cover opacity-95 rounded-full"></div>
           </div>
         </div>
 
         {/* Bottom Controls Area */}
-        <div className="w-full bg-[#0a182b] border-t border-white/5 z-40 pb-safe shadow-[0_-10px_20px_rgba(0,0,0,0.3)]">
+        <div className="w-full bg-[#071221] border-t border-white/5 z-40 pb-safe shadow-[0_-10px_20px_rgba(0,0,0,0.5)]">
           <div className="p-4">
             
             {gameState === 'playing' ? (
