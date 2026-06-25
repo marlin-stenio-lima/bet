@@ -114,10 +114,12 @@ export default function PenaltyGame() {
         <span className="font-bold text-sm tracking-widest uppercase">Penalty Shoot-Out</span>
       </div>
 
-      {/* Multiplier Display - Moved to TOP sky area */}
-      <div className="absolute top-[15%] w-full flex justify-center pointer-events-none z-10">
-        <div className="text-6xl font-black text-white drop-shadow-[0_5px_15px_rgba(0,0,0,1)] tracking-tighter">
-          x{gameState === 'playing' ? MULTIPLIERS[consecutiveGoals].toFixed(2) : (consecutiveGoals > 0 ? MULTIPLIERS[consecutiveGoals - 1].toFixed(2) : '1.00')}
+      {/* Multiplier Display - Glassmorphism Pill at TOP */}
+      <div className="absolute top-24 w-full flex justify-center pointer-events-none z-10">
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 px-8 py-2 rounded-full shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+          <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)] tracking-tighter">
+            x{gameState === 'playing' ? MULTIPLIERS[consecutiveGoals].toFixed(2) : (consecutiveGoals > 0 ? MULTIPLIERS[consecutiveGoals - 1].toFixed(2) : '1.00')}
+          </div>
         </div>
       </div>
 
@@ -126,82 +128,82 @@ export default function PenaltyGame() {
         
         {/* Bottom UI */}
         <div className="px-4">
-          <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-4 border border-white/10 shadow-lg">
+          <div className="bg-[#050b14]/80 backdrop-blur-xl rounded-3xl p-5 border border-white/5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
             
             {gameState === 'playing' ? (
-              <div className="flex justify-center gap-6 z-20">
+              <div className="flex justify-center gap-8 z-20">
                 <button 
                   onClick={() => handleKick('left')}
                   disabled={gameState !== 'playing' || balance < betAmount}
-                  className="w-16 h-16 rounded-full bg-red-600 border-b-4 border-red-800 shadow-[0_5px_15px_rgba(220,38,38,0.5)] flex items-center justify-center hover:bg-red-500 active:translate-y-1 active:border-b-0 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="group relative w-20 h-20 rounded-full bg-gradient-to-b from-red-500 to-red-700 shadow-[0_0_20px_rgba(220,38,38,0.3),inset_0_2px_0_rgba(255,255,255,0.2)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <div className="w-8 h-8 rounded-full border-4 border-white opacity-80 pointer-events-none"></div>
+                  <div className="w-10 h-10 rounded-full border-[5px] border-white/80 group-hover:border-white transition-all shadow-inner"></div>
                 </button>
                 <button 
                   onClick={() => handleKick('right')}
                   disabled={gameState !== 'playing' || balance < betAmount}
-                  className="w-16 h-16 rounded-full bg-blue-600 border-b-4 border-blue-800 shadow-[0_5px_15px_rgba(37,99,235,0.5)] flex items-center justify-center hover:bg-blue-500 active:translate-y-1 active:border-b-0 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="group relative w-20 h-20 rounded-full bg-gradient-to-b from-blue-500 to-blue-700 shadow-[0_0_20px_rgba(37,99,235,0.3),inset_0_2px_0_rgba(255,255,255,0.2)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <div className="w-8 h-8 rounded-full border-4 border-white opacity-80 pointer-events-none"></div>
+                  <div className="w-10 h-10 rounded-full border-[5px] border-white/80 group-hover:border-white transition-all shadow-inner"></div>
                 </button>
               </div>
             ) : gameState === 'result' ? (
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 {isGoal ? (
                   <>
                     <button 
                       onClick={handleNextKick}
-                      className="flex-1 bg-gradient-to-b from-[#1a4a2e] to-[#0d2718] border border-[#23633e] text-white py-3 rounded-xl font-bold hover:brightness-110 transition-all flex flex-col items-center"
+                      className="flex-1 bg-gradient-to-b from-[#16a34a] to-[#14532d] border border-[#22c55e]/30 text-white py-4 rounded-2xl font-bold hover:brightness-110 active:scale-95 transition-all flex flex-col items-center shadow-[0_0_20px_rgba(34,197,94,0.2),inset_0_2px_0_rgba(255,255,255,0.1)]"
                     >
-                      <span className="text-[10px] text-gray-400 uppercase tracking-widest">Próximo Chute</span>
-                      <span className="text-xl">x{MULTIPLIERS[consecutiveGoals + 1]}</span>
+                      <span className="text-[11px] text-[#86efac] uppercase tracking-widest font-black mb-0.5">Próximo Chute</span>
+                      <span className="text-2xl drop-shadow-md">x{MULTIPLIERS[consecutiveGoals + 1]}</span>
                     </button>
                     <button 
                       onClick={handleCashout}
-                      className="flex-1 bg-gradient-to-b from-[#fcd34d] to-[#d97706] text-black py-3 rounded-xl hover:brightness-110 transition-all flex flex-col items-center shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+                      className="flex-1 bg-gradient-to-b from-[#eab308] to-[#854d0e] border border-[#fef08a]/30 text-white py-4 rounded-2xl hover:brightness-110 active:scale-95 transition-all flex flex-col items-center shadow-[0_0_20px_rgba(234,179,8,0.2),inset_0_2px_0_rgba(255,255,255,0.2)]"
                     >
-                      <span className="text-[10px] font-black uppercase opacity-70">Collect</span>
-                      <span className="text-xl font-black">R$ {(betAmount * MULTIPLIERS[consecutiveGoals]).toFixed(2)}</span>
+                      <span className="text-[11px] font-black uppercase text-[#fef08a] tracking-widest mb-0.5">Pegar Lucro</span>
+                      <span className="text-2xl font-black drop-shadow-md">R$ {(betAmount * MULTIPLIERS[consecutiveGoals]).toFixed(2)}</span>
                     </button>
                   </>
                 ) : (
                   <button 
                     onClick={resetGame}
-                    className="w-full bg-gradient-to-b from-[#ef4444] to-[#991b1b] text-white py-4 rounded-xl font-black uppercase hover:brightness-110 transition-all shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+                    className="w-full bg-gradient-to-b from-[#ef4444] to-[#7f1d1d] border border-[#fca5a5]/20 text-white py-5 rounded-2xl font-black text-lg tracking-wider uppercase hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(239,68,68,0.3),inset_0_2px_0_rgba(255,255,255,0.1)]"
                   >
                     TENTAR NOVAMENTE
                   </button>
                 )}
               </div>
             ) : (
-              <div className="flex gap-3 items-center">
-                <div className="flex-1 flex flex-col gap-1.5">
-                  <label className="text-[10px] text-gray-400 font-bold uppercase tracking-widest pl-1">Aposta</label>
-                  <div className="flex items-center justify-between bg-black/50 border border-white/10 rounded-xl p-1.5">
-                    <button onClick={() => setBetAmount(Math.max(5, betAmount - 5))} className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors text-lg font-bold">-</button>
-                    <span className="font-bold text-lg text-white">R$ {betAmount.toFixed(2)}</span>
-                    <button onClick={() => setBetAmount(betAmount + 5)} className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors text-lg font-bold">+</button>
+              <div className="flex gap-4 items-stretch">
+                <div className="flex-1 flex flex-col gap-2">
+                  <label className="text-[11px] text-blue-200/50 font-black uppercase tracking-widest pl-1">Aposta</label>
+                  <div className="flex items-center justify-between bg-black/40 border border-white/5 rounded-2xl p-2 shadow-inner">
+                    <button onClick={() => setBetAmount(Math.max(5, betAmount - 5))} className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-colors text-2xl font-light">-</button>
+                    <span className="font-black text-xl text-white">R$ {betAmount.toFixed(2)}</span>
+                    <button onClick={() => setBetAmount(betAmount + 5)} className="w-12 h-12 flex items-center justify-center bg-white/5 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-colors text-2xl font-light">+</button>
                   </div>
                 </div>
                 <button 
                   onClick={handleStartGame}
-                  className="flex-1 h-14 mt-[22px] bg-gradient-to-b from-[#ffffff] to-[#cccccc] text-black hover:brightness-110 rounded-xl font-black uppercase transition-all flex flex-col items-center justify-center shadow-lg"
+                  className="flex-1 mt-[26px] bg-gradient-to-b from-blue-500 to-blue-700 border border-blue-400/30 text-white hover:brightness-110 active:scale-95 rounded-2xl font-black uppercase transition-all flex flex-col items-center justify-center shadow-[0_0_25px_rgba(59,130,246,0.3),inset_0_2px_0_rgba(255,255,255,0.2)]"
                 >
-                  <span className="text-base tracking-widest">JOGAR</span>
+                  <span className="text-xl tracking-widest drop-shadow-md">JOGAR</span>
                 </button>
               </div>
             )}
 
             {/* Footer Balance */}
-            <div className="flex justify-center items-center mt-4 pt-3 border-t border-white/5 text-gray-400 text-[11px] font-bold tracking-wider">
+            <div className="flex justify-center items-center mt-5 pt-4 border-t border-white/5 text-gray-400 text-[11px] font-bold tracking-wider">
               <div 
-                className="flex items-center gap-1.5 bg-black/40 px-3 py-1.5 rounded-full border border-white/5 cursor-pointer hover:bg-white/10 transition"
+                className="flex items-center gap-2 bg-black/40 px-4 py-2 rounded-full border border-white/5 cursor-pointer hover:bg-white/10 transition"
                 onClick={() => setBalance(prev => prev + 1000)}
-                title="Adicionar saldo falso de teste"
+                title="Adicionar saldo"
               >
-                <Coins className="w-3.5 h-3.5 text-yellow-500" />
-                Saldo: <span className="text-white">R$ {balance.toFixed(2)}</span>
-                <span className="text-green-400 ml-2 border border-green-500/30 px-2 py-0.5 rounded-full text-[9px]">+ R$1000</span>
+                <Coins className="w-4 h-4 text-yellow-500 drop-shadow-[0_0_5px_rgba(234,179,8,0.5)]" />
+                Saldo: <span className="text-white font-black text-sm">R$ {balance.toFixed(2)}</span>
+                <span className="text-green-400 ml-2 bg-green-500/20 border border-green-500/30 px-2 py-0.5 rounded-full text-[9px] font-black">+ R$1000</span>
               </div>
             </div>
           </div>
