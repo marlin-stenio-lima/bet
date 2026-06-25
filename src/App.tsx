@@ -19,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<BrasilHaitiBet />} />
         <Route path="/penalty" element={<PenaltyGame />} />
+        <Route path="/penalti" element={<PenaltyGame />} />
         <Route path="/boost" element={<Home />} />
         <Route path="/afiliados" element={<Affiliates />} />
         <Route path="/logzz" element={<LogzzLP />} />
