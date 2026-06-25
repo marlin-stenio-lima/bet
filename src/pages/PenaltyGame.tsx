@@ -143,8 +143,8 @@ export default function PenaltyGame() {
         </div>
 
         {/* Game Area (3D Canvas) */}
-        <div className="flex-1 w-full relative z-10 bg-black">
-          <Canvas shadows>
+        <div className="flex-1 w-full relative z-10">
+          <Canvas shadows camera={{ position: [0, 2.5, 9], fov: 55 }} gl={{ alpha: true, antialias: true }}>
             <React.Suspense fallback={
               <mesh>
                 <boxGeometry args={[1, 1, 1]} />

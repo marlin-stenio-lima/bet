@@ -49,15 +49,14 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 2.5, 9]} fov={55} />
-      <Environment preset="night" />
-      <ambientLight intensity={0.4} />
+      <Environment preset="city" />
+      <ambientLight intensity={0.6} />
       <directionalLight position={[5, 10, 5]} intensity={1.5} castShadow />
 
       {/* Gramado */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
         <planeGeometry args={[100, 100]} />
-        <meshStandardMaterial color="#0e421c" roughness={0.8} />
+        <meshStandardMaterial color="#115e29" roughness={0.9} />
       </mesh>
 
       {/* Trave */}
@@ -79,8 +78,8 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
 
       {/* Bola */}
       <mesh ref={ballRef} position={[0, 0.2, 5]} castShadow>
-        <sphereGeometry args={[0.2, 32, 32]} />
-        <meshStandardMaterial color="#ffffff" roughness={0.4} />
+        <sphereGeometry args={[0.25, 32, 32]} />
+        <meshStandardMaterial color="#ffffff" roughness={0.3} />
       </mesh>
     </>
   );
