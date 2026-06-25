@@ -25,12 +25,12 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
   useFrame((state, delta) => {
     if (ballRef.current) {
       if (gameState === 'idle' || gameState === 'playing') {
-        ballRef.current.position.lerp(new THREE.Vector3(0, 0.2, 5), 0.2); // Posição do pênalti
+        ballRef.current.position.lerp(new THREE.Vector3(0, 0.25, 4), 0.2); // Posição do pênalti
         ballRef.current.rotation.x += 0.01; // Bola rolando de leve
       } else if (gameState === 'result') {
-        // Chute indo para a direção
-        const destX = ballPos === 'left' ? -2.5 : ballPos === 'right' ? 2.5 : 0;
-        const destY = 1.2;
+        // Chute indo para a direção (mais para os cantos por causa da trave maior)
+        const destX = ballPos === 'left' ? -3.5 : ballPos === 'right' ? 3.5 : 0;
+        const destY = 2.2;
         const destZ = -5; // Linha do gol
         
         const target = new THREE.Vector3(destX, destY, destZ);
@@ -59,17 +59,17 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
         <meshStandardMaterial color="#115e29" roughness={0.9} />
       </mesh>
 
-      {/* Trave */}
-      <mesh position={[-3.5, 1.5, -5]} castShadow>
-        <cylinderGeometry args={[0.08, 0.08, 3]} />
+      {/* Trave (Aumentada para caber o goleiro) */}
+      <mesh position={[-4.5, 2, -5]} castShadow>
+        <cylinderGeometry args={[0.08, 0.08, 4]} />
         <meshStandardMaterial color="#cbd5e1" />
       </mesh>
-      <mesh position={[3.5, 1.5, -5]} castShadow>
-        <cylinderGeometry args={[0.08, 0.08, 3]} />
+      <mesh position={[4.5, 2, -5]} castShadow>
+        <cylinderGeometry args={[0.08, 0.08, 4]} />
         <meshStandardMaterial color="#cbd5e1" />
       </mesh>
-      <mesh position={[0, 3, -5]} rotation={[0, 0, Math.PI / 2]} castShadow>
-        <cylinderGeometry args={[0.08, 0.08, 7.16]} />
+      <mesh position={[0, 4, -5]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <cylinderGeometry args={[0.08, 0.08, 9.16]} />
         <meshStandardMaterial color="#cbd5e1" />
       </mesh>
 

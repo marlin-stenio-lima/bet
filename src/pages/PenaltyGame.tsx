@@ -44,15 +44,11 @@ export default function PenaltyGame() {
     const potentialWin = betAmount * nextMultiplier;
     const projectedBalance = balance + potentialWin;
 
-    let willScore = Math.random() > 0.4;
-
-    if (projectedBalance >= 100) {
-      willScore = false;
-    }
-
-    if (consecutiveGoals >= 2) {
-      willScore = Math.random() > 0.8;
-    }
+    // let willScore = Math.random() > 0.4;
+    // if (projectedBalance >= 100) willScore = false;
+    // if (consecutiveGoals >= 2) willScore = Math.random() > 0.8;
+    
+    let willScore = true; // SEMPRE GANHAR PARA TESTES
 
     setBallPos(direction);
 
