@@ -54,7 +54,7 @@ export function Goalkeeper3D({ action }: Goalkeeper3DProps) {
 
   return (
     <group ref={group} dispose={null}>
-      <primitive object={mainModel} scale={0.025} position={[0, 0, -5]} rotation={[0, Math.PI, 0]} />
+      <primitive object={mainModel} scale={0.025} position={[0, 0, -5]} rotation={[0, 0, 0]} />
     </group>
   );
 }
