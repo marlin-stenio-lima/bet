@@ -99,7 +99,7 @@ export default function PenaltyGame() {
       <div className="w-full max-w-md h-[100dvh] max-h-[900px] bg-[#0c1f3a] relative shadow-2xl overflow-hidden flex flex-col">
         
         {/* Sky Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020b18] to-[#122e4d] z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020b18] to-[#0f2e4a] z-0"></div>
 
         {/* Spotlights */}
         <div className="absolute top-[-10%] left-1/4 w-40 h-[600px] bg-cyan-400/10 blur-3xl rotate-[25deg] z-0"></div>
@@ -176,13 +176,16 @@ export default function PenaltyGame() {
             `}
           </style>
 
-          {/* Goalkeeper (Using the generated 3D goalkeeper image) */}
-          <div className={`absolute bottom-[40%] w-40 h-40 transition-all duration-500 z-20 flex items-center justify-center drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]
+          {/* Goalkeeper Placeholder */}
+          <div className={`absolute bottom-[40%] w-32 h-32 transition-all duration-500 z-20 flex flex-col items-center justify-end
             ${goalkeeperPos === 'center' ? 'left-1/2 -translate-x-1/2 animate-idle' : ''}
-            ${goalkeeperPos === 'left' ? 'left-[25%] -translate-x-1/2 rotate-[-45deg] translate-y-10 scale-110' : ''}
-            ${goalkeeperPos === 'right' ? 'left-[75%] -translate-x-1/2 rotate-[45deg] translate-y-10 scale-110' : ''}
+            ${goalkeeperPos === 'left' ? 'left-[25%] -translate-x-1/2' : ''}
+            ${goalkeeperPos === 'right' ? 'left-[75%] -translate-x-1/2' : ''}
           `}>
-            <img src="/goalkeeper.png" alt="Goleiro" className="w-full h-full object-contain" />
+            <div className="w-16 h-20 bg-blue-600 rounded-t-3xl rounded-b-md shadow-[0_10px_20px_rgba(0,0,0,0.5)] border-2 border-blue-800 flex flex-col items-center pt-2">
+              <div className="w-8 h-8 bg-[#fcd34d] rounded-full mb-1"></div>
+              <div className="text-[10px] font-black text-white">1</div>
+            </div>
           </div>
 
           {/* Ball */}
