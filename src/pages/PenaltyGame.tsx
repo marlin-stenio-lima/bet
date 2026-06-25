@@ -233,9 +233,14 @@ export default function PenaltyGame() {
 
             {/* Footer Balance */}
             <div className="flex justify-center items-center mt-4 pt-3 border-t border-white/5 text-gray-400 text-[11px] font-bold tracking-wider">
-              <div className="flex items-center gap-1.5 bg-black/40 px-3 py-1.5 rounded-full border border-white/5">
+              <div 
+                className="flex items-center gap-1.5 bg-black/40 px-3 py-1.5 rounded-full border border-white/5 cursor-pointer hover:bg-white/10 transition"
+                onClick={() => setBalance(prev => prev + 1000)}
+                title="Adicionar saldo falso de teste"
+              >
                 <Coins className="w-3.5 h-3.5 text-yellow-500" />
                 Saldo: <span className="text-white">R$ {balance.toFixed(2)}</span>
+                <span className="text-green-400 ml-2 border border-green-500/30 px-2 py-0.5 rounded-full text-[9px]">+ R$1000</span>
               </div>
             </div>
           </div>
