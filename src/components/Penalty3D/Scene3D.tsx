@@ -14,9 +14,9 @@ interface Scene3DProps {
 function StadiumBackground() {
   const texture = useLoader(THREE.TextureLoader, '/textures/stadium.png');
   return (
-    <mesh position={[0, 10, -30]}>
-      <planeGeometry args={[120, 60]} />
-      <meshBasicMaterial map={texture} depthWrite={false} toneMapped={false} />
+    <mesh>
+      <sphereGeometry args={[60, 32, 32]} />
+      <meshBasicMaterial map={texture} depthWrite={false} toneMapped={false} side={THREE.BackSide} />
     </mesh>
   );
 }
@@ -40,7 +40,7 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
       } else if (gameState === 'result') {
         // Chute indo para a direção (mais para os cantos por causa da trave maior)
         const destX = ballPos === 'left' ? -3.5 : ballPos === 'right' ? 3.5 : 0;
-        const destY = ballPos === 'center' ? 2.8 : 1.5; // Bola mais alta no meio
+        const destY = ballPos === 'center' ? 1.8 : 1.5; 
         const destZ = -5; // Linha do gol
         
         const target = new THREE.Vector3(destX, destY, destZ);
@@ -49,7 +49,7 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
         if (!isGoal) {
             target.z = -3.8; 
             if (ballPos === 'center') {
-              target.y = 2.8; // Altura do peito do goleiro
+              target.y = 1.8; // Altura da barriga/peito do goleiro
               target.x = 0;
             } else if (ballPos === 'left') {
               target.y = 0.5; // Altura no chão
@@ -96,17 +96,17 @@ export function Scene3D({ gameState, goalkeeperPos, ballPos, isGoal }: Scene3DPr
         <meshStandardMaterial color="#cbd5e1" />
       </mesh>
 
-      {/* Redes da Trave (Wireframe para efeito de rede real) */}
+      {/* Redes da Trave (Wireframe detalhado para efeito de rede real) */}
       <mesh position={[0, 2, -6.5]}>
-        <planeGeometry args={[9, 4]} />
+        <planeGeometry args={[9, 4, 45, 20]} />
         <meshStandardMaterial color="#ffffff" transparent opacity={0.3} wireframe />
       </mesh>
       <mesh position={[-4.5, 2, -5.75]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[1.5, 4]} />
+        <planeGeometry args={[1.5, 4, 8, 20]} />
         <meshStandardMaterial color="#ffffff" transparent opacity={0.3} wireframe />
       </mesh>
       <mesh position={[4.5, 2, -5.75]} rotation={[0, -Math.PI / 2, 0]}>
-        <planeGeometry args={[1.5, 4]} />
+        <planeGeometry args={[1.5, 4, 8, 20]} />
         <meshStandardMaterial color="#ffffff" transparent opacity={0.3} wireframe />
       </mesh>
 
